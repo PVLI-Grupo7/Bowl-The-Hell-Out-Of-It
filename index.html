@@ -2,22 +2,86 @@
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8">
-	<title>¡PVLI!</title>
+	<meta charset="utf-8">
+	<title>Nine Circles at Pablo's</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<link rel="stylesheet" href="./css/estilo.css">
+	<link rel="stylesheet" href="./css/estilo.css">
 </head>
 
-<body>	
-	<div>  
-		<h1>PVLI - Proyecto</h1>
-		<p>Controles:</p>
-		<ul>		
-			<li>Yepa</li>
-	</div>
-	<div id='juego'></div>
-	<script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
-	<script src="./src/main.js" type="module"></script>
-</body>
+<body>
+	<header>
+		<p class="etiqueta">PVLI · DOCUMENTO DE JUEGO</p>
+		<h1>Nine Circles at Pablo's</h1>
+		<p class="subtitulo">Bolos, demonios y una última tirada para escapar del infierno.</p>
+	</header>
 
+	<main>
+		<section class="canvas" aria-label="Área de juego">
+			<div id="juego"></div>
+		</section>
+
+		<script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+		<script type="module" src="./src/main.js"></script>
+
+		<section class="configuracion">
+			<h2>Objetivos y controles</h2>
+			<p>
+				Petra ha caído en el infierno de los bolos. Derriba bolos para conseguir fuerza,
+				derrota a los demonios y supera los nueve círculos hasta enfrentarte al jefe final.
+			</p>
+			<ul class="lista-controles">
+				<li><kbd>RATÓN</kbd> ____________</li>
+				<li><kbd>CLICK</kbd> ____________</li>
+				<li><kbd>A / D</kbd> ____________</li>
+				<li><kbd>START</kbd> ____________</li>
+			</ul>
+		</section>
+
+		<section class="descripcion">
+			<h2>Descripción</h2>
+			<p>
+				<strong>Nine Circles at Pablo's</strong> es un juego rogue-lite y sport centrado en los bolos.
+				El jugador lanza una bola por una pista dinámica llena de obstáculos y, al llegar al final,
+				debe derribar el máximo número de bolos para obtener mejoras y poder enfrentarse a los demonios.
+				Cada enemigo modifica la pista con piedras, hielo, viento, portales u otras trampas.
+			</p>
+			<p>
+				El bucle de juego consiste en entrar en combate, jugar a los bolos para atacar,
+				recoger aura y monedas, comprar equipamiento y avanzar hacia el siguiente enfrentamiento.
+			</p>
+		</section>
+
+		<section class="mecanicas">
+			<h2>Mecánicas principales</h2>
+			<div class="tarjetas">
+				<article><span>01</span><h3>La tirada</h3><p>____________</p></article>
+				<article><span>02</span><h3>La pista</h3><p>____________</p></article>
+				<article><span>03</span><h3>El combate</h3><p>____________</p></article>
+			</div>
+		</section>
+
+		<section class="autores">
+			<h2>Autores</h2>
+			<ul class="lista-nombres">
+				<li>Alejandro de Haro Morales</li>
+				<li>Adán Calvo Durán</li>
+				<li>Javier de Sala Rodríguez</li>
+				<li>Diego García Alonso</li>
+			</ul>
+		</section>
+
+		<section class="redes">
+			<h2>Repositorio</h2>
+			    <div class="link">
+        			<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="20">
+        			<a href="https://github.com/Diegogog25/Nine-Circles-at-Pablo">Repositorio GitHub</a>
+      			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>Última actualización: 23/09/2026</p>
+		<p>Nine Circles at Pablo's · 2026</p>
+	</footer>
+</body>
 </html>

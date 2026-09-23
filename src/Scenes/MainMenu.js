@@ -6,10 +6,10 @@ export default class MainMenu extends Phaser.Scene {
     create() {
 
         this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 50, //Texto a añadir
-            "TRON",{
+            "NINE CIRCLES",{
             fontFamily: "balloonfont",
             align: "right",
-            fontSize: 75,
+            fontSize: 42,
             color: "#ff9100ff"
         }).setOrigin(0.5);
 
