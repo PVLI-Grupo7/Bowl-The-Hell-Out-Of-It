@@ -1,5 +1,5 @@
 /* =========================
-   ESTILO NINE CIRCLES
+   ESTILO BOWL
    ========================= */
 
 /* General */
@@ -58,8 +58,8 @@ section {
 .etiqueta {
   margin: 0 0 18px;
   color: var(--amarillo);
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: 30px;
+  letter-spacing: 0.13em;
 }
 
 h1,
@@ -111,7 +111,7 @@ p {
   min-height: 420px;
   padding: 18px;
   border: 3px solid var(--rosa);
-  background: #0d0c11;
+  /* background: #0d0c11; */
   box-shadow: 8px 8px 0 rgba(255, 82, 125, 0.18);
 }
 
