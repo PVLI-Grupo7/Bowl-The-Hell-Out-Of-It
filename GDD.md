@@ -11,7 +11,7 @@ Diego García Alonso —> carta Animal Crossing
 
 ###### Fecha de la última actualización --> 24/09/2026
 
-1 Descripción general....................   .................................................................................2
+1 Descripción general.....................................................................................................2
 
 1.1 Concepto...............................................................................................................2
 
@@ -79,20 +79,28 @@ obstáculos y, al llegar al final de esta, debe derribar el máximo número de b
 número de bolos que derribe le servirá para simultáneamente debilitar a demonios con el
 objetivo de derrotarlos a todos y escapar del infierno.
 
-1.2 Género
+## 1.2 Género
+
 Es un juego de género rogue-lite y bowling. Está orientado a un público que gusta de
 estrategia y de habilidad mecánica.
-1.3 Setting
+
+## 1.3 Setting
+
 Tras una bolista, Petra, hacer trampas en la final de una competición de bolos, es
 condenada al infierno de los bolos. Ahí, deberá pagar su castigo lanzando bolas de bolos
 que tendrán que recorrer una pista llena de obstáculos hasta impactar en los bolos que se
 encontrarán al final de esta. Los bolos que Petra derribe le ayudarán a derrotar a los
 diferentes habitantes del infierno y al propio diablo para tener la oportunidad de regresar.
-1.4 Características principales
-- Derrotar enemigos cada vez más fuertes hasta llegar al jefe final
-- Mejorar tu build mediante elecciones de equipamiento
-- Dominar poco a poco la mecánica de los bolos para ser más fuerte en el combate
-2 Gameplay
+
+## 1.4 Características principales
+
+<li>
+ <lu> Derrotar enemigos cada vez más fuertes hasta llegar al jefe final </lu>
+ <lu> Mejorar tu build mediante elecciones de equipamiento </lu>
+ <lu> Dominar poco a poco la mecánica de los bolos para ser más fuerte en el combate </lu>
+</li>
+
+# 2 Gameplay
 2.1 Objetivo del juego
 El principal objetivo es llegar hasta el nivel final del juego y derrotar al diablo… Lo que
 significa que para lograrlo hay que superar múltiples niveles con enemigos de todo tipo
