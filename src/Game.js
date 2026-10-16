@@ -11,7 +11,7 @@ let config = {
 	scale: {
 		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
 	},
-	//scene: [{preload:preload, create:create}],	// Decimos a Phaser cual es nuestra escena, en este caso la escena es un 
+	scene: [{preload:preload, create:create}],	// Decimos a Phaser cual es nuestra escena, en este caso la escena es un 
 												//objeto formado por el método preload y create definidos más abajo en 
 												//este mismo archivo
 	physics: { 
@@ -22,5 +22,48 @@ let config = {
 		} 
 	}
 };
-
 new Phaser.Game(config);
+
+// preload - método de las escenas donde se pueden cargar los recursos que necesitaremos
+function preload (){
+		//Cargamos assets de una URL de otra web
+		//this.load.setBaseURL('http://labs.phaser.io');
+		//this.load.image('sky', 'assets/skies/space.png');
+		//this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+		//this.load.image('red', 'assets/particles/red.png');
+		
+		//Cargamos los assets desde nuestra raiz del proyecto
+		//this.load.image('sky', 'assets/space.png');
+		//this.load.image('logo', 'assets/phaser3-logo.png');
+		//this.load.image('red', 'assets/red.png');
+}
+
+// create - método de las escenas que se llama una vez la escena está instanciada
+function create ()
+{
+		//Las imagenes tienen como origen el centro por defecto
+		//this.add.image(400, 300, 'sky');
+		
+		//Imagen con origen superior izquierdo
+		//this.add.image(0, 0, 'sky').setOrigin(0, 0);
+
+		//Generador de partículas
+		//const emitter = this.add.particles(0, 0, 'red', {
+            //blendMode: 'ADD',
+            //speed: 100,
+            //lifespan: 1000,
+            //quantity: 2,
+            //scale: { start: 1, end: 0 }
+        //});
+
+
+		//var logo = this.physics.add.image(400, 100, 'logo');
+
+		//logo.setVelocity(100, 200);
+		//logo.setBounce(1, 1);
+		//logo.setCollideWorldBounds(true);
+
+		//El generador de partículas sigue al logo
+		//emitter.startFollow(logo);
+}
+
