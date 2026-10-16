@@ -1,12 +1,17 @@
-##### Bowl the hell out of it
+# Bowl the hell out of it
 ## Equipo de desarrollo:
+
 Alejandro de Haro Morales —> carta Hades
+
 Adán Calvo Durán —> carta Loro Pirata
+
 Javier de Sala Rodríguez —> carta Inframundo
+
 Diego García Alonso —> carta Animal Crossing
-Fecha de la última actualización
-24/09/2026
-1 Descripción general.....................................................................................................2
+
+Fecha de la última actualización --> 24/09/2026
+
+1 Descripción general....................   .................................................................................2
 1.1 Concepto...............................................................................................................2
 1.2 Género.................................................................................................................. 3
 1.3 Setting................................................................................................................... 3
