@@ -1,10 +1,9 @@
 # **Bowl the hell out of it**
 
 Este proyecto es un trabajo Universitario de la Universidad Complutense de Madrid
-<img src="/src/imagesMK/ucm.png" alt="Texto" width="20%">
+<img src="/src/imagesMK/ucm.png" alt="Texto" width="40%">
 ## Sociales
-[Twitter del grupo](https://x.com/LarpingStudios)
-<img src="/src/imagesMK/larpeadora.png" alt="Texto" width="30%">
+[![Larpeadora|100](/src/imagesMK/larpeadora.jpg)](https://x.com/LarpingStudios)
 
 ## Descripción del juego
 Bowl the hell out of it es un juego rogue-lite y sport centrado en los bolos.
