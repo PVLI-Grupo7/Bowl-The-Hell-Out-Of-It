@@ -5,17 +5,17 @@ export default class MainMenu extends Phaser.Scene {
 
     create() {
 
-        this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 50, //Texto a añadir
-            "NINE CIRCLES",{
-            fontFamily: "balloonfont",
-            align: "right",
+        this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 220, //Texto a añadir
+            "Bowl The Hell Out Of It",{
+            fontFamily: "Arial",
+            align: "center",
             fontSize: 42,
-            color: "#ff9100ff"
+            color: "rgb(231, 231, 231)"
         }).setOrigin(0.5);
 
+        /*
 
-
-        let startButton = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY + 100, "Start",{
+        let startButton = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY , "Start",{
             fontFamily: "arcade",
             align: "center",
             fontSize: 20,
@@ -24,5 +24,10 @@ export default class MainMenu extends Phaser.Scene {
         startButton.on('pointerdown', pointer =>{
              this.scene.start("PlayScene");
         });
+        */
+
+        let button_Trial_Scene1 = this.add.image(this.scale.width/4,this.scale.height/3,"Button_Scene_Adan");
+        button_Trial_Scene1.setInteractive();
+        button_Trial_Scene1.on("pointerup",()=>{this.scene.start("Trial_Scene_Adan");})
     }
 }
