@@ -156,98 +156,70 @@ integrado en la flecha se llena y vacía repetidamente hasta que el jugador hace
 define la fuerza del disparo. Después, la bola será lanzada y se perderá el control sobre ella.
 
 El jugador siempre empieza con x boliches base y a estos se le añaden los otros que haya
-desbloqueado.
-Cuando una bola de bolos se pare completamente o sale de la pantalla por el lado de los
+desbloqueado. Cuando una bola de bolos se pare completamente o sale de la pantalla por el lado de los
 bolos (ya sea tras golpearlo o deslizándose por el gutter) la bola desaparece y el tiro
 terminará y pasaremos a la siguiente bola del riel hasta quedarnos sin bolas.
-Parámetro Descripción Unidad
-Velocidad de disparo Magnitud que expresa el
-espacio recorrido en una
-unidad de tiempo y se
-establece en el momento
-en el que la bola es lanzada
-m/s
-Oscilación de la flecha Movimiento repetido de un
-medio o sistema en torno a
-una posición central o de
-equilibrio a lo largo del
-tiempo
-Amplitud (m)
-Periodo (s)
-Llenado/vaciado de la flecha velocidad lineal a la cual el
-medidor gana o pierde
-unidades
-Unidades genéricas/s
-Medidor de la flecha capacidad total del medidor Unidad genérica
+
+<!-- Parámetros y descripciones -->
+
+![PARAMETROS](image-1.png)
 
 ## 4.2 Modificaciones en la pista
 
+<ul>
 La pista se subdivide en una cuadrícula, dentro de la cuadrícula puede haber todo tipo de
 obstáculos.
 Obstáculos o efectos en casillas singulares.
-- Rocas: Obstruyen el camino para el jugador y le obligan a esquivarlas. En caso de
-que una bola impacte contra una roca, ésta se frena un montón y rebotará, en caso
-de que sea una bola pesada la roca será destrozada sin causarle nada a la bola. Las
-rocas también pueden ser afectadas por efectos del aura de algunas bolas.
-- Magma: Si la bola pasa por encima del magma, incinera los primeros bolos que esta
-toca. Esto hace que no cuenten hacia la puntuación del tiro. La cantidad de bolos
-incinerados dependerá de cuánto peso tenga la bola, a mayor peso más bolos
-incinerados, con bolas pesadas pudiendo llegar a quemar 5 bolos.
-- Barra de fuego: Una línea de fuego que gira fijada a un eje. Si la bola toca el fuego,
-se quema y el lanzamiento es anulado
-- Arena de almas: Cubre una zona de la pista la cual aumenta la fricción de la bola
-con la pista haciendo que esta frene más rápido, el aumento de fricción es
-proporcional al peso de la bola, con un aumento de la fricción del 20% para bolas
-ligeras, 40% para bolas de peso medio y 60% para bolas pesadas.
-- Vacío de aura: Una casilla que solo puede ser evitada por la bola con aura perezosa,
-si una bola toca esta casilla la siguiente perderá su aura volviéndola una bola base,
-tras ser tocada esta casilla desaparecerá hasta el siguiente set donde reaparece,
-además no tiene colisión por lo que las bolas la atraviesan.
-Efectos globales de toda la pista.
-- Cambio de forma: En la presencia de algunos enemigos la pista podrá cambiar de
-forma, desde alargarse hasta tener giros.
-- Canales o gutters: La pista tendrá a sus laterales unos canales donde la bola podrá
-caer terminando con el tiro instantáneamente.
-- Barreras: En caso de que no haya un enemigo que active los gutters, la pista contará
-con paredes o barreras en sus laterales para permitir el rebote de la bola contra
-estas.
-- Viento: En toda la pista hay una corriente de aire que puede acelerar o desacelerar
-la bola más allá de desviarla, el viento en diferentes zonas de la pista tendrá
-sentidos distintos, el viento afectará más o menos dependiendo del peso de la bola y
-tamaño.
+    <li>Rocas: Obstruyen el camino para el jugador y le obligan a esquivarlas. En caso de
+    que una bola impacte contra una roca, ésta se frena un montón y rebotará, en caso
+    de que sea una bola pesada la roca será destrozada sin causarle nada a la bola. Las
+    rocas también pueden ser afectadas por efectos del aura de algunas bolas.</li>
+
+    <li>Magma: Si la bola pasa por encima del magma, incinera los primeros bolos que esta
+    toca. Esto hace que no cuenten hacia la puntuación del tiro. La cantidad de bolos
+    incinerados dependerá de cuánto peso tenga la bola, a mayor peso más bolos
+    incinerados, con bolas pesadas pudiendo llegar a quemar 5 bolos.</li>
+
+    <li>Barra de fuego: Una línea de fuego que gira fijada a un eje. Si la bola toca el fuego,
+    se quema y el lanzamiento es anulado</li>
+
+    <li>Arena de almas: Cubre una zona de la pista la cual aumenta la fricción de la bola
+    con la pista haciendo que esta frene más rápido, el aumento de fricción es
+    proporcional al peso de la bola, con un aumento de la fricción del 20% para bolas
+    ligeras, 40% para bolas de peso medio y 60% para bolas pesadas.</li>
+
+    <li>Vacío de aura: Una casilla que solo puede ser evitada por la bola con aura perezosa,
+    si una bola toca esta casilla la siguiente perderá su aura volviéndola una bola base,
+    tras ser tocada esta casilla desaparecerá hasta el siguiente set donde reaparece,
+    además no tiene colisión por lo que las bolas la atraviesan.
+    Efectos globales de toda la pista.</li>
+
+    <li>Cambio de forma: En la presencia de algunos enemigos la pista podrá cambiar de
+    forma, desde alargarse hasta tener giros.</li>
+
+    <li>Canales o gutters: La pista tendrá a sus laterales unos canales donde la bola podrá
+    caer terminando con el tiro instantáneamente.</li>
+
+    <li>Barreras: En caso de que no haya un enemigo que active los gutters, la pista contará
+    con paredes o barreras en sus laterales para permitir el rebote de la bola contra
+    estas.</li>
+
+    <li>Viento: En toda la pista hay una corriente de aire que puede acelerar o desacelerar
+    la bola más allá de desviarla, el viento en diferentes zonas de la pista tendrá
+    sentidos distintos, el viento afectará más o menos dependiendo del peso de la bola y
+    tamaño.</li>
+</ul>
 
 ## 4.3 Puntuación
 
 Viene dada por el número de bolos que tiremos. Disponemos de dos tiros para derribar el
 máximo número de bolos posibles, en nuestro caso 10, antes de que se recoloquen todos,
 esto es conocido como un set.
-Tipo de tiro Descripción Puntuación otorgada
-Tiro normal Todavía quedan bolos en
-pie después de usar los dos
-lanzamientos.
-Puntuación: Bolos
-derribados x multiplicador
-de la bola*
-Efecto: Ninguno, no hay
-bonus acumulativo
-Semi-pleno Se derriban los diez bolos
-usando los dos
-lanzamientos del set.
-Puntuación: 10 x
-multiplicador de la bola
-Efecto: La puntuación del
-siguiente set será duplicada
-Pleno Se derriban los diez bolos
-de la pista en una sola
-tirada
-Puntuación: 10 x
-multiplicador de la bola
-Efecto: Pasamos
-directamente al siguiente
-set evitando gastar otra
-bola, además la puntuación
-del siguiente set estará
-multiplicada por 2,5
+
+<!-- Imagen puntos-->
+
+![PUNTOS](puntos.png)
+
 *En caso de hacer un pleno o semipleno y justo quedarte sin bolas recibirás una bola extra normal
 para hacer uso del multiplicador de puntuación, con esta bola no contarán plenos o semiplenos para
 evitar bolas infinitas.
@@ -255,6 +227,7 @@ multiplicador de la bola* → Cada bola dispone de una estadística de puntuaci�
 que se multiplica al número de pines que tires.
 
 ## 4.4 Obtención
+
 Al finalizar una partida (da igual si se gana o se pierde), el jugador accede a una pantalla
 donde su progreso en partida se convierte en pines de azufre. Estos pines le servirán al
 jugador para comprar y desbloquear nuevos personajes en la tienda del menú principal.
@@ -265,6 +238,7 @@ pasamos un nivel completo, 10 pines.
 
 
 ## 4.5 Equipamiento
+
 Todo equipamiento viene dado por bolas o pines con efectos variados. En el caso de los
 pines, uno de los 10 pines será reemplazado al azar por aquel con efecto especial, y los
 pines no pueden tener más de un efecto al mismo tiempo.
@@ -283,46 +257,46 @@ cambian, los cambios son mencionados en las secciones de obstáculos.
 
 ### 4.5.2 Tipos de bolas según sus auras.
 
-● Bola base: La primera bola de la que dispondremos en el gameplay. No tiene ningún
-efecto adicional.
-● Bola soberbia: Actúa en todas sus características como la bola normal, solo que al
-derribar un bolo, su puntuación se multiplica por un valor aleatorio entre 0.5 y 3.5.
-● Bola codiciosa: Si no consigues derribar un bolo, la siguiente bola del carril
-desaparecerá, en caso de derribar los bolos, por cada bolo derribado tienes un 10%
-de recibir una bola extra que copiará el efecto de alguna de las bolas que tengas en
-tu inventario.
-● Bola perezosa: Esta bola se volverá intangible por un tiempo tras entrar en contacto
-con un obstáculo, en este estado no será afectada por obstáculos y los podrá
-atravesar (en caso de llegar a los pines siendo intangible esta podría atravesarlos y
-pasar sin derribarlos)
-● Bola envidiosa: Según la cantidad de bolos que esta bola derribe, la cantidad en su
-totalidad se añade a tu puntuación y la mitad (redondeando hacia arriba) se le resta
-al contrincante
-● Bola Irascible: Al entrar en contacto con un bolo, explota y derriba todos los bolos en
-una pequeña área de efecto, además en caso de impactar contra un obstáculo que
-no pueda atravesar esta explotará destruyendo el obstáculo.
-● Bola gulosa: Esta bola automáticamente se vuelve pesada teniendo los efectos de
-ser pesada, y tras ser lanzada crecerá a lo largo de la pista hasta tener un tamaño
-equivalente al doble de su tamaño original.
-● Bola lujuriosa: Esta bola tras ser lanzada esperará un tiempo y tras esto se acelerará
-y dejará un rastro por un instante en el que las futuras bolas también se acelerarán.
+    ● Bola base: La primera bola de la que dispondremos en el gameplay. No tiene ningún
+    efecto adicional.
+    ● Bola soberbia: Actúa en todas sus características como la bola normal, solo que al
+    derribar un bolo, su puntuación se multiplica por un valor aleatorio entre 0.5 y 3.5.
+    ● Bola codiciosa: Si no consigues derribar un bolo, la siguiente bola del carril
+    desaparecerá, en caso de derribar los bolos, por cada bolo derribado tienes un 10%
+    de recibir una bola extra que copiará el efecto de alguna de las bolas que tengas en
+    tu inventario.
+    ● Bola perezosa: Esta bola se volverá intangible por un tiempo tras entrar en contacto
+    con un obstáculo, en este estado no será afectada por obstáculos y los podrá
+    atravesar (en caso de llegar a los pines siendo intangible esta podría atravesarlos y
+    pasar sin derribarlos)
+    ● Bola envidiosa: Según la cantidad de bolos que esta bola derribe, la cantidad en su
+    totalidad se añade a tu puntuación y la mitad (redondeando hacia arriba) se le resta
+    al contrincante
+    ● Bola Irascible: Al entrar en contacto con un bolo, explota y derriba todos los bolos en
+    una pequeña área de efecto, además en caso de impactar contra un obstáculo que
+    no pueda atravesar esta explotará destruyendo el obstáculo.
+    ● Bola gulosa: Esta bola automáticamente se vuelve pesada teniendo los efectos de
+    ser pesada, y tras ser lanzada crecerá a lo largo de la pista hasta tener un tamaño
+    equivalente al doble de su tamaño original.
+    ● Bola lujuriosa: Esta bola tras ser lanzada esperará un tiempo y tras esto se acelerará
+    y dejará un rastro por un instante en el que las futuras bolas también se acelerarán.
 
 ### 4.5.3 Tipos de Pines
 
-● Pin común: El primer pin del cual dispondremos en el gameplay. No tiene ningún
-efecto adicional.
-● Pin dorado: Derribar este pin cuenta el triple que derribar uno común
-● Pin clonador: Cada set en el cual derribes este pin, su valor incrementa en 1
-● Pin misil: Al derribar este pin, automáticamente derriba otro pin al azar que haya
-quedado en pie tras el lanzamiento. No tiene efecto si el jugador hace un pleno
-● Pintryoshka: Añade 1 pin extra a la puntuación por cada otro pin que haya sido tirado
-en ese lanzamiento, con un máximo de 5
-● Pin de diamante: Por cada set en el cual derribes este pin se te otorgará 1 moneda
-más al final del nivel, con un máximo de 4 para cada pin.
-● Pin de azufre: Este pin puede spawnear de manera muy poco común en las partidas
-normales. Sirven para la meta-progresión del juego y el desbloqueo de personajes,
-pero suelen obtenerse implícitamente al terminar un nivel. Está especificado en la
-sección 4.4. Obtención
+    ● Pin común: El primer pin del cual dispondremos en el gameplay. No tiene ningún
+    efecto adicional.
+    ● Pin dorado: Derribar este pin cuenta el triple que derribar uno común
+    ● Pin clonador: Cada set en el cual derribes este pin, su valor incrementa en 1
+    ● Pin misil: Al derribar este pin, automáticamente derriba otro pin al azar que haya
+    quedado en pie tras el lanzamiento. No tiene efecto si el jugador hace un pleno
+    ● Pintryoshka: Añade 1 pin extra a la puntuación por cada otro pin que haya sido tirado
+    en ese lanzamiento, con un máximo de 5
+    ● Pin de diamante: Por cada set en el cual derribes este pin se te otorgará 1 moneda
+    más al final del nivel, con un máximo de 4 para cada pin.
+    ● Pin de azufre: Este pin puede spawnear de manera muy poco común en las partidas
+    normales. Sirven para la meta-progresión del juego y el desbloqueo de personajes,
+    pero suelen obtenerse implícitamente al terminar un nivel. Está especificado en la
+    sección 4.4. Obtención
 
 ## 4.6 Tienda
 
@@ -330,6 +304,7 @@ Después de un enfrentamiento el jugador recibirá una cantidad de monedas varia
 dependiendo de la dificultad de los enemigos, además si consigue los puntos necesarios
 para superar un enfrentamiento y le sobran bolas en el rail estas añadirán un pequeño
 bonus de monedas a la ganancia total.
+
 Entre etapas de enfrentamiento de vez en cuando habrá una tienda, esta pantalla tendrá la
 misma disposición que un enfrentamiento con los personajes arriba y la pista de bolos
 abajo, la única diferencia es que en la tienda tendrás bolas de bolos normales infinitas, y en
@@ -337,18 +312,24 @@ vez de pines y obstáculos estarán los objetos a comprar con su precio, si el j
 comprarlos deberá lanzarse la bola de bolos, tras esta impactar contra un artículo se frenará
 terminando la tirada, en caso de tener las monedas, este artículo se comprará y la zona
 donde estaba el objeto comprado pasará a ser una salida.
+
 Se le ofrece una bola y un pin al azar los cuales cuestan 4 monedas aunque tienen un 15%
 de estar rebajados a la mitad.
+
 Además en la tienda tendrás la opción de renovar los objetos a la venta, para esto lanzamos
 la bola contra la correspondiente máquina y se te consumirá una moneda, la máquina tiene
 un pequeño porcentaje de no cambiar los objetos a pesar de consumir la moneda, esto se
 puede repetir de nuevo hasta el tercer intento donde es asegurada la renovación.
+
 Para terminar la sección de tienda basta con lanzar la bola a la salida.
+
 Nota* Debido a influencia de una carta se ha añadido al personaje loro pirata como el
 dependiente de la tienda, su función será estética y hará algún sonido y dirá alguna cosa
 relacionada a las acciones del jugador.
-➡️
+
 *Prototipo visual de tienda sin el loro*
+
+![TIENDA](image-2.png)
 
 # 5 Mundo del juego
 ## 5.1 Personajes principales
@@ -364,15 +345,15 @@ superficie.
 
 ## 5.2 Objetos
 
-- Bolos: Siempre se encuentran al final de la pista y son los que el jugador debe
-derribar cada lanzamiento. Hay 10 en total
-- Monedas: Compone el dinero común en el juego que se usa en la tienda. Se
-consiguen al final de cada nivel dependiendo del encuentro, de las bolas sobrantes y
-de los efectos de los pines.
-- Pines de azufre: Es nuestra moneda principal de meta-progresión en el juego para
-desbloquear las compras permanentes desde el menú principal, o sea los
-personajes. A diferencia de las monedas que se pierden al reiniciar una partida, los
-pines permanecen entre partidas.
+    - Bolos: Siempre se encuentran al final de la pista y son los que el jugador debe
+    derribar cada lanzamiento. Hay 10 en total
+    - Monedas: Compone el dinero común en el juego que se usa en la tienda. Se
+    consiguen al final de cada nivel dependiendo del encuentro, de las bolas sobrantes y
+    de los efectos de los pines.
+    - Pines de azufre: Es nuestra moneda principal de meta-progresión en el juego para
+    desbloquear las compras permanentes desde el menú principal, o sea los
+    personajes. A diferencia de las monedas que se pierden al reiniciar una partida, los
+    pines permanecen entre partidas.
 
 ## 5.3 Niveles
 
@@ -382,47 +363,20 @@ número de bolos al final de esta, permanece igual en todos los niveles de nuest
 realizados por los enemigos del juego. Cada enemigo tiene el poder de modificar levemente
 la pista, en la mayoría de los enfrentamientos hay más de un enemigo acumulando los
 efectos de cada uno sobre la pista.
+
 Para superar un nivel se deberá alcanzar una puntuación suficiente antes de que se te
 acaben las bolas.
+
 La transición entre niveles será lineal.
 
 ## 5.4 Enemigos
 
 Todos los enemigos ocupan una posición en pantalla específica la cual no se modifica.
 Todos los efectos de pista son permanentes
-Nombre Descripción
-Diablillo de pacotilla pétreo Un enemigo que coloca dos casillas de piedras en
-la pista.
-Cubo de lava Una criatura que convive en el infierno la cual
-crea casillas de magma en la pista.
-Diablo marchito Conjura arena de almas que cubre secciones de
-la pista
-Espíritu de fuego Esta criatura invoca una barra de fuego giratoria
-Diablo laura Este demonio beta crea una casilla de vacío de
-aura en la pista
-Gran espíritu de viento Aplica el efecto de pista de viento
-Demonio de la caída Este gran demonio aplica el efecto de pista de
-canales o gutters
-El caracol inmortal (mini boss?) Aplica el efecto de pista de cambiar la forma y le
-da a la pista una forma elíptica con la bola
-partiendo desde el medio de la elipsis y los bolos
-al final de esta.
-Lucifer (Boss final) prototipo Este demonio será capaz de hacer que tengas
-que derrotarlo tres veces, tendrás que alcanzar un
-puntaje y cuando lo alcances recuperarás tus
-bolas y la pista cambiará.
-En cada fase la forma de la pista cambiará junto
-al resto de enemigos del encuentro
-La primera pista tendrá forma de serpiente
-La segunda tendrá forma de estrella invertida de 5
-puntas, la bola de una punta y tendrá que dar
-toda la vuelta rebotando para llegar a la misma
-punta por el otro lado
-Y la última pista parecerá una pista normal solo
-que los bolos no estarán y cuando lances la bola
-y esta llegue al final de la pista la cámara
-empezará a seguir a la bola mostrando que la
-pista es exageradamente larga.
+
+![ENEMIGOS](image-3.png)
+
+![ENEMIGOS2](image-4.png)
 
 # 6 Interfaz
 ## 6.1 Cámara
@@ -450,26 +404,26 @@ metes un pleno)
 ### 6.3.1 Menú principal
 
 Pantalla que ve el jugador al entrar al juego o al volver a este desde otros menús.
-Contiene lo siguiente:
-- Botón para empezar una partida: empieza una partida completamente nueva
-- Botón de ajustes: entra en el menú de ajustes
-- Botón de tienda de personajes
+Contiene lo siguiente:  
+    - Botón para empezar una partida: empieza una partida completamente nueva
+    - Botón de ajustes: entra en el menú de ajustes
+    - Botón de tienda de personajes
 
 ### 6.3.2 Menú de pausa y ajustes
 
 Pantalla que va a ver el jugador al pausar el juego, es semitransparente, por lo que el
 estado del juego se sigue pudiendo ver en el fondo de este menú.
 Está compuesto por tres botones:
-- Reanudar: al pulsarlo la partida actual continúa.
-- Menú: al pulsarlo el jugador vuelve al menú principal. Pierde el progreso de la
-partida en la que se encuentra. Este botón, al ser pulsado, desplegará una ventana
-emergente con un mensaje de confirmación, para evitar clicks accidentales de parte
-del jugador.
+    - Reanudar: al pulsarlo la partida actual continúa.
+    - Menú: al pulsarlo el jugador vuelve al menú principal. Pierde el progreso de la
+    partida en la que se encuentra. Este botón, al ser pulsado, desplegará una ventana
+    emergente con un mensaje de confirmación, para evitar clicks accidentales de parte
+    del jugador.
 Además de estos botones habrá sliders para audio y espacio para otros ajustes en caso de
 ser necesarios.
-- Slider de volumen principal: controla el volumen general del juego.
-- Slider de volumen efectos: controla el volumen de todo menos la música.
-- Slider de volumen música: controla el volumen de la música
+    - Slider de volumen principal: controla el volumen general del juego.
+    - Slider de volumen efectos: controla el volumen de todo menos la música.
+    - Slider de volumen música: controla el volumen de la música
 
 ### 6.3.3 Menú de derrota
 
@@ -529,16 +483,14 @@ puntos de tus pines siendo calculados y sumados.
 # 10 Referencias
 
 PEGLIN
-Inspiración para el gameplay dual y lleno de
-gimmicks.
+Inspiración para el gameplay dual y lleno de gimmicks.
+
 BALL x PIT
-Inspiración para efectos de bolas y
-gimmicks.
+Inspiración para efectos de bolas y gimmicks.
+
 BALATRO
-Inspiración para el bucle de juego, la tienda
-entre rondas y la meta-progresión
+Inspiración para el bucle de juego, la tienda entre rondas y la meta-progresión
+
 BOLOS
-El juego es literalmente jugar a los bolos,
-por lo que no es sorpresa que gran parte
-esté basada en las reglas básicas del
-deporte en la vida real
+El juego es literalmente jugar a los bolos, por lo que no es sorpresa que gran parte
+esté basada en las reglas básicas del deporte en la vida real
