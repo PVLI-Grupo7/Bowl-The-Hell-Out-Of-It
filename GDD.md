@@ -9,7 +9,7 @@ Javier de Sala Rodríguez —> carta Inframundo
 
 Diego García Alonso —> carta Animal Crossing
 
-###### Fecha de la última actualización --> 24/09/2026
+### Fecha de la última actualización --> 24/09/2026
 
 1 Descripción general.....................................................................................................2
 
@@ -142,6 +142,8 @@ medidores de lanzamiento y su puntuación por bolo.
 ## 3.3 Controles
 
 <!-- IMAGEN DE LOS CONTROLES -->
+
+![CONTROLES](image.png)
 
 # 4 Mecánicas
 ## 4.1 Lanzamiento del boliche
