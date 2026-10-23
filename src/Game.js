@@ -1,8 +1,7 @@
 import MainMenu from "./Scenes/MainMenu.js";
 import BootScene from "./Scenes/BootScene.js";
 import Trial_Scene_Adan from "./Scenes/TrialSceneAdan.js";
-
-
+import EscenaAlejandro from "./Scenes/EscenaAlejandro.js";
 
 /**
  * Inicio del juego en Phaser. Creamos el archivo de configuración del juego y creamos
@@ -17,14 +16,15 @@ let config = {
 	scale: {
 		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
 	},
-	scene: [BootScene,MainMenu,Trial_Scene_Adan],	// Decimos a Phaser cual es nuestra escena, en este caso la escena es un 
+	scene: [BootScene,MainMenu,Trial_Scene_Adan,EscenaAlejandro],	
+												// Decimos a Phaser cual es nuestra escena, en este caso la escena es un 
 												//objeto formado por el método preload y create definidos más abajo en 
 												//este mismo archivo
 	physics: { 
 		default: 'arcade', 
 		arcade: { 
 			gravity: { y: 200 }, 
-			debug: false 
+			debug: true 
 		} 
 	}
 };
