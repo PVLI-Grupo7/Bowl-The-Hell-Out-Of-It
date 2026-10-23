@@ -13,8 +13,6 @@ export default class MainMenu extends Phaser.Scene {
             color: "rgb(231, 231, 231)"
         }).setOrigin(0.5);
 
-        /*
-
         let startButton = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY , "Start",{
             fontFamily: "arcade",
             align: "center",
@@ -24,7 +22,7 @@ export default class MainMenu extends Phaser.Scene {
         startButton.on('pointerdown', pointer =>{
              this.scene.start("PlayScene");
         });
-        */
+        
 
         let button_Trial_Scene1 = this.add.image(this.scale.width/4,this.scale.height/3,"Button_Scene_Adan");
         button_Trial_Scene1.setInteractive();
