@@ -349,7 +349,7 @@ relacionada a las acciones del jugador.
 
 *Prototipo visual de tienda sin el loro*
 
-![TIENDA](image-2.png)
+![TIENDADEVERDAD](image-2.png)
 
 # 5 Mundo del juego
 ## 5.1 Personajes principales
@@ -404,7 +404,7 @@ Todos los efectos de pista son permanentes
 | Gran espíritu de viento | Aplica el efecto de pista de viento |
 | Demonio de la caída | Este gran demonio aplica el efecto de pista de canales o gutters |
 | El caracol inmortal (mini boss?) | Aplica el efecto de pista de cambiar la forma y le da a la pista una forma elíptica con la bola partiendo desde el medio de la elipsis y los bolos al final de esta. |
-| Lucifer (Boss final) prototipo | Este demonio será capaz de hacer que tengas que derrotarlo tres veces, tendrás que alcanzar un puntaje y cuando lo alcances recuperarás tus bolas y la pista cambiará. En cada fase la forma de la pista cambiará junto al resto de enemigos del encuentro La primera pista tendrá forma de serpiente ![SERPIENTE](image-3.png) La segunda tendrá forma de estrella invertida de 5 puntas, la bola de una punta y tendrá que dar toda la vuelta rebotando para llegar a la misma punta por el otro lado ![ESTRELLA](image-4.png) Y la última pista parecerá una pista normal solo que los bolos no estarán y cuando lances la bola y esta llegue al final de la pista la cámara empezará a seguir a la bola mostrando que la pista es exageradamente larga. |
+| Lucifer (Boss final) prototipo | Este demonio será capaz de hacer que tengas que derrotarlo tres veces, tendrás que alcanzar un puntaje y cuando lo alcances recuperarás tus bolas y la pista cambiará. En cada fase la forma de la pista cambiará junto al resto de enemigos del encuentro La primera pista tendrá forma de serpiente ![SERPIENTE44](image-3.png) La segunda tendrá forma de estrella invertida de 5 puntas, la bola de una punta y tendrá que dar toda la vuelta rebotando para llegar a la misma punta por el otro lado ![ESTRELLA67](image-4.png) Y la última pista parecerá una pista normal solo que los bolos no estarán y cuando lances la bola y esta llegue al final de la pista la cámara empezará a seguir a la bola mostrando que la pista es exageradamente larga. |
 
 # 6 Interfaz
 ## 6.1 Cámara
