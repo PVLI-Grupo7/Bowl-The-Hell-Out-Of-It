@@ -150,7 +150,7 @@ medidores de lanzamiento y su puntuación por bolo.
 
 | Acción | Control |
 | -----  | Ratón y click / barra espaciadora |
-Navegación por los menús
+| Navegación por los menús | 
 | -----  |
 | Lanzamiento de bolos |
 | -----  |
