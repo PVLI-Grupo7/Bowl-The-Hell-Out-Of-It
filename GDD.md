@@ -218,7 +218,7 @@ esto es conocido como un set.
 
 <!-- Imagen puntos-->
 
-![PUNTOS](puntos.png)
+![PUNTOS](PUNTOS-1.png)
 
 *En caso de hacer un pleno o semipleno y justo quedarte sin bolas recibirás una bola extra normal
 para hacer uso del multiplicador de puntuación, con esta bola no contarán plenos o semiplenos para
@@ -374,9 +374,9 @@ La transición entre niveles será lineal.
 Todos los enemigos ocupan una posición en pantalla específica la cual no se modifica.
 Todos los efectos de pista son permanentes
 
-![ENEMIGOS](image-3.png)
+![ENEMIGOS I](<ENEMIGOS I.png>)
 
-![ENEMIGOS2](image-4.png)
+![ENEMIGOS 2](<ENEMIGOS II.png>)
 
 # 6 Interfaz
 ## 6.1 Cámara
