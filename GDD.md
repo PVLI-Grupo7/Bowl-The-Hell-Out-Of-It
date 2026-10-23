@@ -149,12 +149,11 @@ medidores de lanzamiento y su puntuación por bolo.
 <!-- TABLA DE LOS CONTROLES -->
 
 | Acción | Control |
-| -----  | Ratón y click / barra espaciadora |
-| Navegación por los menús | 
-| -----  |
+| ------ | ------- |
+| Navegación por menús | Ratón y click / barra espaciadora |
 | Lanzamiento de bolos |
-| -----  |
-| Adelantar Diálogo |
+| Adelantar diálogos |
+
 
 # 4 Mecánicas
 ## 4.1 Lanzamiento del boliche
@@ -173,6 +172,12 @@ terminará y pasaremos a la siguiente bola del riel hasta quedarnos sin bolas.
 
 <!-- Tabla Parámetros y descripciones -->
 
+
+| Parámetro | Descripción | Unidad |
+| --------  | ----------- | ------ |
+| Velocidad de disparo | Magnitud que expresa el espacio recorrido en una unidad de tiempo y se establece en el momento en el que la bola es lanzada | m/s |
+| Oscilación de la flecha | Movimiento repetido de un medio o sistema en torno a una posición central o de equilibrio a lo largo del tiempo | Llenado/vaciado de la flecha | Velocidad lineal a la cual el medidor gana o pierde unidades | Unidades genéricas/s |
+| Medidor de la flecha | capacidad total de medidor | Unidad genérica |
 
 
 ## 4.2 Modificaciones en la pista
@@ -227,9 +232,13 @@ Viene dada por el número de bolos que tiremos. Disponemos de dos tiros para der
 máximo número de bolos posibles, en nuestro caso 10, antes de que se recoloquen todos,
 esto es conocido como un set.
 
-<!-- Imagen puntos-->
+<!-- Tabla puntos-->
 
-![PUNTOS](PUNTOS-1.png)
+| Tipo de tiro | Descripción | Puntuación otorgada |
+| ------------ | ----------- | ------------------- |
+| Tiro normal | Todavía quedan bolos en pie después de usar los dos lanzamientos. | Puntuación: Bolos derribados x multiplicador de la bola* Efecto: Ninguno, no hay bonus acumulativo |
+| Semi-pleno | Se derriban los diez bolos usando los dos lanzamientos del set. | Puntuación: 10 x multiplicador de la bola. Efecto: La puntuación del siguiente set será duplicada |
+| Pleno | Se derriban los diez bolos de la pista en una sola tirada | Puntuación: 10 x multiplicador de la bola Efecto: Pasamos directamente al siguiente set evitando gastar otra bola, además la puntuación del siguiente set estará multiplicada por 2,5 |
 
 *En caso de hacer un pleno o semipleno y justo quedarte sin bolas recibirás una bola extra normal
 para hacer uso del multiplicador de puntuación, con esta bola no contarán plenos o semiplenos para
@@ -385,9 +394,17 @@ La transición entre niveles será lineal.
 Todos los enemigos ocupan una posición en pantalla específica la cual no se modifica.
 Todos los efectos de pista son permanentes
 
-![ENEMIGOS I](<ENEMIGOS I.png>)
-
-![ENEMIGOS 2](<ENEMIGOS II.png>)
+| Nombre | Descripción |
+| ------ | ----------- |
+| Diablillo de pacotilla pétreo | Un enemigo que coloca dos casillas de piedras en la pista. |
+| Cubo de lava | Una criatura que convive en el infierno la cual crea casillas de magma en la pista. |
+| Diablo marchito | Conjura arena de almas que cubre secciones de la pista |
+| Espirítu de fuego | Esta criatura invoca una barra de fuego giratoria |
+| Diablo laura | Este demonio beta crea una casilla de vacío de aura en la pista |
+| Gran espíritu de viento | Aplica el efecto de pista de viento |
+| Demonio de la caída | Este gran demonio aplica el efecto de pista de canales o gutters |
+| El caracol inmortal (mini boss?) | Aplica el efecto de pista de cambiar la forma y le da a la pista una forma elíptica con la bola partiendo desde el medio de la elipsis y los bolos al final de esta. |
+| Lucifer (Boss final) prototipo | Este demonio será capaz de hacer que tengas que derrotarlo tres veces, tendrás que alcanzar un puntaje y cuando lo alcances recuperarás tus bolas y la pista cambiará. En cada fase la forma de la pista cambiará junto al resto de enemigos del encuentro La primera pista tendrá forma de serpiente ![SERPIENTE](image-3.png) La segunda tendrá forma de estrella invertida de 5 puntas, la bola de una punta y tendrá que dar toda la vuelta rebotando para llegar a la misma punta por el otro lado ![ESTRELLA](image-4.png) Y la última pista parecerá una pista normal solo que los bolos no estarán y cuando lances la bola y esta llegue al final de la pista la cámara empezará a seguir a la bola mostrando que la pista es exageradamente larga. |
 
 # 6 Interfaz
 ## 6.1 Cámara
