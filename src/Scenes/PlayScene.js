@@ -20,7 +20,7 @@ export default class PlayScene extends Phaser.Scene {
         //Objetos
         this.ball =  this.physics.add.image(100, this.scale.height/2, "Ball_Prototype");
         this.arrow = this.add.rectangle(this.ball.x, this.ball.y, 100, 10, 0xffffff).setOrigin(0,0.5);
-        this.powerBar = this.add.rectangle(this.ball.x - 50, this.ball.y + 50, 10, 100, 0xffffff).setOrigin(0.5, 1).setVisible(false); 
+        this.powerBar = this.add.rectangle(this.ball.x - 50, this.ball.y + 50, 10, 100, 0xff0000).setOrigin(0.5, 1).setVisible(false); 
 
     }
     preload(){
