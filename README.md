@@ -13,3 +13,13 @@ Cada enemigo modificará la pista con obstáculos con la intención de hacerte f
 ¿Podrás prevalecer ante las circunstancias y superar el desafío?
 
 [Página web del juego en progreso :D](https://pvli-grupo7.github.io/Bowl-The-Hell-Out-Of-It/)
+
+
+## Assets  
+Imagenes/Sprites  
+La autoría de la mayor parte del arte es de momento nuestra y esta arte esta bajo licencia de Creative Commons BY.  
+Como excepciones únicas a esta pre-alpha del proyecto hay 2 archivos de third-parties  
+Imagen Restock.jpg sacado de la pagina de famdon de [The Bindding Of ISaac](https://bindingofisaac.fandom.com/es/wiki/Reponer).  
+Sprite de protag_temporaryIdle.png sacado de la pagina de famdon de [Yosafire](https://okegom.fandom.com/wiki/Yosafire/Sprite_Gallery).  
+
+
