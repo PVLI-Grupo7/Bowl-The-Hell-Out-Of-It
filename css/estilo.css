@@ -108,10 +108,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 420px;
-  padding: 18px;
+  width: 806px;
+  height: 606px;
+  padding: 10px;
+  margin: auto;
   border: 3px solid var(--rosa);
-  /* background: #0d0c11; */
+  background: #0d0c11;
   box-shadow: 8px 8px 0 rgba(255, 82, 125, 0.18);
 }
 
