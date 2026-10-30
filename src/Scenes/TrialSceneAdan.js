@@ -1,5 +1,6 @@
 import BowlingBall from "../Game_Objects/BowlingBall.js";
 import Wall from "../Game_Objects/Wall.js";
+import Obstacle from "../Game_Objects/Obstacle.js";
 
 export default class Trial_Scene_Adan extends Phaser.Scene {
     constructor() {
@@ -14,16 +15,17 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
 
         
         this.add.text(this.scale.width/2,this.scale.height/2 - 200,
-            "Nada que ver por aquí por el momento :P",{
+            "Pruebas tecnicas de la bola la pista y los obtaculos",{
             fontFamily: "Arial",
             align: "center",
-            fontSize: 42,
+            fontSize: 25,
             color: "rgb(26, 194, 14)"
         }).setOrigin(0.5);
     }
 
     create(){
         this.ball = new BowlingBall(this, 100, 450, "Ball_Prototype" , 50);
+
         this.box = {};
         this.box.wallUp = new Wall(this, this.scale.width/2, 300, "Wall_Prototype", this.scale.width, 30);
         this.box.wallDown = new Wall(this, this.scale.width/2, 580, "Wall_Prototype", this.scale.width, 30);
@@ -34,6 +36,15 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
         this.physics.add.collider(this.ball, this.box.wallDown);
         this.physics.add.collider(this.ball, this.box.wallLeft);
         this.physics.add.collider(this.ball, this.box.wallRight);
+
+        this.obtacles = {};
+        this.obtacles.Rock1 = new Obstacle(this, 400, 450 , "Roca" , 15);
+        this.obtacles.Rock2 = new Obstacle(this, 500, 400 , "Roca" , 15);
+        this.obtacles.Rock3 = new Obstacle(this, 500, 500 , "Roca" , 15);
+
+        this.physics.add.collider(this.ball, this.obtacles.Rock1);
+        this.physics.add.collider(this.ball, this.obtacles.Rock2);
+        this.physics.add.collider(this.ball, this.obtacles.Rock3);
     }
 
     update(time,delta){
