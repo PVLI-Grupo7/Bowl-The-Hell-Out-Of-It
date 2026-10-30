@@ -2,7 +2,7 @@ import MainMenu from "./Scenes/MainMenu.js";
 import BootScene from "./Scenes/BootScene.js";
 import Trial_Scene_Adan from "./Scenes/TrialSceneAdan.js";
 import EscenaAlejandro from "./Scenes/EscenaAlejandro.js";
-impprt EscenaJavier from "./Scenes/EscenaJavier.js";
+import EscenaJavier from "./Scenes/EscenaJavier.js";
 
 /**
  * Inicio del juego en Phaser. Creamos el archivo de configuración del juego y creamos
