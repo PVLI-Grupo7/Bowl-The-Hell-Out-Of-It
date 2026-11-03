@@ -1,7 +1,7 @@
 import Inventario from "./inventario.js";
 
 export default class Player extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture, inventario = new Inventario()) {
+    constructor(scene, x, y, texture, inventario) {
         super(scene, x, y, texture);
 
         this.inventario = inventario;

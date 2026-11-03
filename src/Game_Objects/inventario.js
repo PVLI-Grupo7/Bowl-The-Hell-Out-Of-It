@@ -1,24 +1,26 @@
 export default class Inventario {
-    constructor() {
+    constructor(dinero=10) {
         this.items = [];
+        this.dinero = dinero;
     }
 
-    // Añadir objetos
+    // Añadir item
     addItem(item) {
         this.items.push(item);
     }
 
-    // Eliminar objetos por su nombre
-    removeItem(item) {
-        const index = this.items.indexOf(item);
-
-        if (index !== -1) {
-            this.items.splice(index, 1);
-        }
-    }
-
-    // Consultar si un objeto está en el inventario
+    // Consultar si un item está en el inventario
     hasItem(item) {
         return this.items.includes(item);
+    }
+
+    // Tanto para ganar como perder dinero, si es perder entonces será negativo
+    modifyMoney(numero){
+        this.dinero += numero;
+    }
+
+    // Devuelve la cantidad de dinero que tiene el jugaddor
+    checkMoney(){
+        return this.dinero;
     }
 }

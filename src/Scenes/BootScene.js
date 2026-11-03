@@ -18,6 +18,7 @@ export default class BootScene extends Phaser.Scene {
         this.load.image("Bola2","src/Game_Art/bolaCutre1.jpg");
         this.load.image("Bola3","src/Game_Art/bolaCutre2.jpg");
         this.load.image("redArrow","src/Game_Art/flechaRoja.png");
+        this.load.image("Restock","src/Game_Art/Restock.jpg");
         this.load.spritesheet("ProtaIdle", "src/Game_Art/protag_temporaryIdle.png",{
             frameWidth: 87,
             frameHeight: 105

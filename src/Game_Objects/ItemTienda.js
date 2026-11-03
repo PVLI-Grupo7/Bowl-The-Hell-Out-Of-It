@@ -1,22 +1,25 @@
 export default class ItemTienda extends Phaser.GameObjects.Image {
     constructor(scene, x, y, texture) {
-        super({scene, x, y, texture});
+        super(scene, x, y, texture);
+        this.scene = scene;
         this.scene.add.existing(this);
+
+        this.scene.physics.add.existing(this); 
     }
 
-    init(data){
-        this.item = data.pin
-    }
-
-    preload(){
+    preUpdate() {
         
     }
 
-    // update(){
-        
-    // }
+    comprarItem() {
+        const inventario = this.scene.game.registry.get("inventario");
 
-    create(data){
-        
+        if (inventario && inventario.checkMoney() >= 4) {
+            inventario.addItem(this.texture);
+            console.log("Item comprado");
+            console.log(inventario.items);
+            inventario.modifyMoney(-4);
+        }
     }
+
 }
