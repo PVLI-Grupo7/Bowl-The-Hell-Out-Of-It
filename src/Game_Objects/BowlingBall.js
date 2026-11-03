@@ -1,5 +1,5 @@
 export default class BowlingBall extends Phaser.GameObjects.Image{
-    constructor(scene, x, y, texture, radious, weight = 2){
+    constructor(scene, x, y, texture, radious, weight = 2, lives = 3){
         super(scene, x, y, texture);
         
         this.scene.add.existing(this);
@@ -14,6 +14,11 @@ export default class BowlingBall extends Phaser.GameObjects.Image{
         //Propiedades de la bola (En el futuro quizas tenga un constructor masivo donde se le pasen todas sus propiedades)
         //Peso, ligero = 1, medio = 2, pesado = 3
         this.weight = weight;
+        this.lives = lives;
+        
+        //Guardamos la pos inicial
+        this.startX = x;
+        this.startY = y;
         // Velocidad a la que sale disparada
         // this.startSpeed = 500;
         //Usualmente le pongo como 0.2 de friccion
@@ -29,10 +34,10 @@ export default class BowlingBall extends Phaser.GameObjects.Image{
         this.maxSpeed = 300;
         //Inputs
         scene.input.on("pointerdown", this.onClick, this);
+        scene.input.keyboard.on("keydown-R", this.reset,this);
         // Flechas
         this.arrow = scene.add.rectangle(this.x, this.y, 100, 10, 0xffffff).setOrigin(0,0.5);
         this.powerBar = scene.add.rectangle(this.x - 50, this.y + 50, 10, 100, 0xff0000).setOrigin(0.5, 1).setVisible(false); 
-
         // //Sitema interactivo para probar la escena BORRAR CUANDO ANTES
         // this.pointer = this.scene.input.activePointer;
         // this.scene.input.on('pointerup', pointer => {
@@ -85,6 +90,8 @@ export default class BowlingBall extends Phaser.GameObjects.Image{
 
             this.stage++;
         }else if(this.stage == 1){
+            //Al lanzar pierde una "vida"
+            this.lives--;
             // Cuando se lanza la bola, no queremos ver mas las flechas
             this.arrow.setVisible(false);
             this.powerBar.setVisible(false);
@@ -94,6 +101,16 @@ export default class BowlingBall extends Phaser.GameObjects.Image{
             this.body.setVelocity(vx, vy);
             this.stage++;
         }
+    }
+
+    //Resetea la pelota a su posicion inicial si le quedan vidas
+    reset(){
+        if(this.lives <= 0) return;
+
+        this.body.reset(this.startX,this.startY);
+        this.arrow.setVisible(true);
+        this.powerBar.setVisible(false);
+        this.stage = 0;
     }
 
 }
