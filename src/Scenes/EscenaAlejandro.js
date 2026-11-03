@@ -65,31 +65,7 @@ export default class EscenaAlejandro extends Phaser.Scene {
 
 
         //Creacion de la bola
-        this.ball = new BowlingBall(this, 200, 300, "Ball_Prototype" , 50);
-        this.ballInitialState = {
-            x: this.ball.x,
-            y: this.ball.y,
-        };
-
-
-        //Gestión de colisiones con los distintos items de la tienda
-        this.physics.add.overlap(this.ball, this.Restock1, () => {
-            this.randomizaTienda();
-        });
-        this.physics.add.overlap(this.ball, this.Restock2, () => {
-            this.randomizaTienda();
-        });
-
-        this.physics.add.overlap(this.ball, this.itemTienda1, (ball, item) => {
-            item.comprarItem();
-            item.setVisible(false);
-            this.resetBola();
-        });
-        this.physics.add.overlap(this.ball, this.itemTienda2, (ball, item) => {
-            item.comprarItem();
-            item.setVisible(false);
-            this.resetBola();
-        });
+        this.ball = new BowlingBall(this, 200, 300, "Ball_Prototype" , 50, 2, 100);
 
 
         //Aqui se crea el jugador y su inventario (si no existe ya)
@@ -104,54 +80,130 @@ export default class EscenaAlejandro extends Phaser.Scene {
 
         //Cajas de colisiones que encasan la tienda
         this.box = {};
-            this.box.wallUp = new Wall(this, 685, 265, "Wall_Prototype", 150, 10);
-            this.box.wallDown = new Wall(this, 685, 337, "Wall_Prototype", 150, 10);
+            this.box.wall1 = new Wall(this, 685, 265, "Wall_Prototype", 150, 10);
+            this.box.wall2 = new Wall(this, 685, 337, "Wall_Prototype", 150, 10);
+            this.box.wallup = new Wall(this, 470, 180, "Wall_Prototype", 700, 5).setVisible(false);
+            this.box.walldown = new Wall(this, 470, 420, "Wall_Prototype", 700, 5).setVisible(false);
+            this.box.wallleft = new Wall(this, 165, 300, "Wall_Prototype", 5, 300).setVisible(false);
+            this.box.wallright = new Wall(this, 765, 300, "Wall_Prototype", 5, 300).setVisible(false);
 
-        this.physics.add.collider(this.ball, this.box.wallUp);
-        this.physics.add.collider(this.ball, this.box.wallDown);
+        this.physics.add.collider(this.ball, this.box.wall1);
+        this.physics.add.collider(this.ball, this.box.wall2);
+        this.physics.add.collider(this.ball, this.box.wallup);
+        this.physics.add.collider(this.ball, this.box.walldown);
+        this.physics.add.collider(this.ball, this.box.wallleft);
+        this.physics.add.collider(this.ball, this.box.wallright);
+
+
+        //Texto con el dinero
+        this.textMoney = this.add.text(20, 200, "Dinero: " + this.inventario.dinero + " (M)", { font: "20px Arial", fill: "#272525" }).setOrigin(0, 0).setScrollFactor(0,0);
+
+
+        //Gestión de colisiones con los distintos items de la tienda
+        this.physics.add.overlap(this.ball, this.Restock1, () => {
+            this.randomizaTienda();
+        });
+        this.physics.add.overlap(this.ball, this.Restock2, () => {
+            this.randomizaTienda();
+        });
+
+        this.physics.add.overlap(this.ball, this.itemTienda1, (ball, item) => {
+            if (this.inventario.checkMoney() >= 4){
+                item.comprarItem();
+                item.setVisible(false);
+                this.updateMoney();
+            }
+            this.ball.reset();
+        });
+        this.physics.add.overlap(this.ball, this.itemTienda2, (ball, item) => {
+            if (this.inventario.checkMoney() >= 4){
+                item.comprarItem();
+                item.setVisible(false);
+                this.updateMoney();
+            }
+            this.ball.reset();
+        });
+
+
+        //Texto de información según el item de la tienda que se seleccione con el ratón
+        this.info = this.add.text(20, 500, "", {font: "20px Arial", color: "#272525"}).setOrigin(0, 0).setScrollFactor(0, 0);
+        this.info.setVisible(false);
+
+        this.itemTienda1.setInteractive();
+        this.itemTienda2.setInteractive();
+
+        this.mostrarInfo(this.itemTienda1);
+        this.mostrarInfo(this.itemTienda2);
+
+
+        //Hack de gemas infinitas clash royale (funciona en 2017!)
+        this.teclaM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
+        this.teclaM.on("down", () => {this.activaCheats();});
+    }
+
+    activaCheats(){
+        if (this.inventario)
+        {
+            this.inventario.modifyMoney(10);
+            this.updateMoney();
+        }
     }
 
     randomizaTienda(){  
         //Randomiza los items de la tienda si el jugador tiene el dinero 
         //suficiente y le resta 1 al dinero del jugador. Tambien se
         //asegura de que el item random es distinto al anterior
-
         if (this.inventario && this.inventario.checkMoney() >= 1){
-            this.npin;
-            this.nbola;
+            let npin;
+            let nbola;
 
             do {
-                this.npin = this.listaPin[Phaser.Math.Between(0, 2)];
-            } while(this.npin === this.numRandomPin);
+                npin = this.listaPin[Phaser.Math.Between(0, 2)];
+            } while(npin == this.numRandomPin);
 
             do {
-                this.nbola = this.listaBolo[Phaser.Math.Between(0, 2)];
-            } while(this.bola === this.numRandomBola);
+                nbola = this.listaBolo[Phaser.Math.Between(0, 2)];
+            } while(nbola == this.numRandomBola);
 
-            this.numRandomPin = this.npin;
-            this.numRandomBola = this.nbola;
+            console.log(npin == this.numRandomPin);
+            console.log(nbola == this.numRandomBola);
+
+            this.numRandomPin = npin;
+            this.numRandomBola = nbola;
 
             this.itemTienda1.setTexture(this.numRandomPin);
             this.itemTienda1.setVisible(true);
-
             this.itemTienda2.setTexture(this.numRandomBola);
             this.itemTienda2.setVisible(true);
-            this.inventario.modifyMoney(-1);
 
-            this.resetBola();
+            this.inventario.modifyMoney(-1);
+            this.updateMoney();
+
+            this.ball.reset();
         }
     }
 
-    resetBola(){    //Resetea la bola, solo se llama en metodos llamados al haber una colisión
-        this.ball.setPosition(
-            this.ballInitialState.x,
-            this.ballInitialState.y
-        );
-
-        this.ball.body.setVelocity(0, 0);
-        this.ball.body.enable = true;
+    updateMoney(){
+        this.textMoney.setText("Dinero: " + this.inventario.dinero + " (M)");
     }
 
+    mostrarInfo(item) {
+        item.on("pointerover", () => {
+            const descripciones = {
+                "Pin1": "Pin normalito",
+                "Pin2": "Este es un ejemplo, muy feo",
+                "Pin3": "Tambien un ejemplo, incluso mas feo",
+
+                "Bola1": "Bola normalita",
+                "Bola2": "Bola pero un poco mas fea",
+                "Bola3": "Bola pero la más fea"
+            };
+            this.info.setText(descripciones[item.texture.key] || "");
+            this.info.setVisible(true);
+        });
+
+        item.on("pointerout", () => {this.info.setVisible(false);});
+    }
     update(time,delta){
         this.ball.update(time,delta);
     }

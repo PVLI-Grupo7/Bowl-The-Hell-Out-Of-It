@@ -15,9 +15,8 @@ export default class ItemTienda extends Phaser.GameObjects.Image {
         const inventario = this.scene.game.registry.get("inventario");
 
         if (inventario && inventario.checkMoney() >= 4) {
+            console.log("Item comprado!!");
             inventario.addItem(this.texture);
-            console.log("Item comprado");
-            console.log(inventario.items);
             inventario.modifyMoney(-4);
         }
     }

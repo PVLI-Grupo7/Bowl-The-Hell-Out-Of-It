@@ -32,7 +32,6 @@ export default class BootScene extends Phaser.Scene {
     }
 
     createAnims() {
-        console.log("hola")
         this.anims.create({
             key: "player_idle",
             frames: this.anims.generateFrameNumbers("ProtaIdle", { start: 0, end: 5 }),
