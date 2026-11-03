@@ -1,4 +1,4 @@
-import Obstacle from './Obstacle.js'; // 1. El Enemigo importa al Obstáculo
+import Obstacle from './Obstacle.js';
 
 export default class Enemigo extends Phaser.GameObjects.Image {
     constructor(scene, x, y, texture, w, h) {
@@ -17,7 +17,7 @@ export default class Enemigo extends Phaser.GameObjects.Image {
         }
     }
 
-    // 2. Método para que el enemigo cree obstáculos
+    // crea obstaculo
     invocarObstaculo(x, y, textura, r) {
         return new Obstacle(this.scene, x, y, textura, r);
     }
