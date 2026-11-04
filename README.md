@@ -16,8 +16,9 @@ Cada enemigo modificará la pista con obstáculos con la intención de hacerte f
 
 
 ## Assets  
-El arte del juego buscar ser minimalista y tener un tono desenfadado y hasta un poco ridiculo.
-Imagenes/Sprites  
+El arte del juego buscar ser minimalista y tener un tono desenfadado y hasta un poco ridiculo.  
+  
+### Imagenes/Sprites  
 La autoría de la mayor parte del arte es de momento nuestra y esta arte esta bajo licencia de Creative Commons BY.  
 Como excepciones únicas a esta pre-alpha del proyecto hay 2 archivos de third-parties  
 Imagen Restock.jpg sacado de la pagina de famdon de [The Bindding Of ISaac](https://bindingofisaac.fandom.com/es/wiki/Reponer).  
