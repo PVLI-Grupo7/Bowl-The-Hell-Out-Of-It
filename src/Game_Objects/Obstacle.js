@@ -9,7 +9,7 @@ export default class Obstacle extends Phaser.GameObjects.Image{
         scene.physics.add.existing(this,true);
         
         this.body.setCircle(r);
-
+        this.body.pushable = false;
 
         //Apariencia y colocacion del sprite sobre el collider
         this.setDisplaySize(r*4,r*4)

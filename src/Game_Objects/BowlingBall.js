@@ -2,6 +2,7 @@ export default class BowlingBall extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, texture, frame, radious, weight = 2, lives = 3){
         super(scene, x, y, texture, frame);
         
+        this.sceneRef = scene;
         this.scene.add.existing(this);
 
         //Fisicas y config del body
@@ -16,6 +17,8 @@ export default class BowlingBall extends Phaser.GameObjects.Sprite{
         //Propiedades de la bola (En el futuro quizas tenga un constructor masivo donde se le pasen todas sus propiedades)
         //Peso, ligero = 1, medio = 2, pesado = 3
         this.weight = weight;
+
+        this.hasAlreadyBeenTrown = false;
 
         this.lives = lives;
         
@@ -41,14 +44,7 @@ export default class BowlingBall extends Phaser.GameObjects.Sprite{
         // Flechas
         this.arrow = scene.add.rectangle(this.x, this.y, 100, 10, 0xffffff).setOrigin(0,0.5);
         this.powerBar = scene.add.rectangle(this.x - 50, this.y + 50, 10, 100, 0xff0000).setOrigin(0.5, 1).setVisible(false); 
-        // //Sitema interactivo para probar la escena BORRAR CUANDO ANTES
-        // this.pointer = this.scene.input.activePointer;
-        // this.scene.input.on('pointerup', pointer => {
-        //     if (pointer.leftButtonReleased()) {
-        //         this.body.setVelocity(this.startSpeed * Phaser.Math.Between(-1,1),this.startSpeed * Phaser.Math.Between(-1,1));
-        //     }
 
-        // });
     }
 
     update(time,delta){
@@ -111,6 +107,8 @@ export default class BowlingBall extends Phaser.GameObjects.Sprite{
             const vy = Math.sin(this.arrow.rotation) * this.power * this.maxSpeed;
             this.body.setVelocity(vx, vy);
             this.stage++;
+
+            this.hasAlreadyBeenTrown = true;
         }
     }
 
@@ -122,6 +120,20 @@ export default class BowlingBall extends Phaser.GameObjects.Sprite{
         this.arrow.setVisible(true);
         this.powerBar.setVisible(false);
         this.stage = 0;
+        this.hasAlreadyBeenTrown = false;
+    }
+
+    //Metodo para cargarse elementos que causan problemas al borrar la bola
+    destroy(fromScene) {
+        if (this.sceneRef){
+        this.sceneRef.input.off("pointerdown", this.onClick, this);
+        this.sceneRef.input.keyboard.off("keydown-R", this.reset, this);
+        }
+
+        this.arrow.destroy();
+        this.powerBar.destroy();
+
+        super.destroy(fromScene);
     }
 
 }
