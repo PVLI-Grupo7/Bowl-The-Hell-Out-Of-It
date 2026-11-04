@@ -38,14 +38,14 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
         this.physics.add.collider(this.ball, this.box.wallLeft);
         this.physics.add.collider(this.ball, this.box.wallRight);
 
-        // this.obtacles = {};
-        // this.obtacles.Rock1 = new Obstacle(this, 400, 450 , "Roca" , 15);
-        // this.obtacles.Rock2 = new Obstacle(this, 500, 400 , "Roca" , 15);
-        // this.obtacles.Rock3 = new Obstacle(this, 500, 500 , "Roca" , 15);
+        this.obtacles = {};
+        this.obtacles.Rock1 = new Obstacle(this, 400, 450 , "Roca" , 15);
+        this.obtacles.Rock2 = new Obstacle(this, 500, 400 , "Roca" , 15);
+        this.obtacles.Rock3 = new Obstacle(this, 500, 500 , "Roca" , 15);
 
-        // this.physics.add.collider(this.ball, this.obtacles.Rock1);
-        // this.physics.add.collider(this.ball, this.obtacles.Rock2);
-        // this.physics.add.collider(this.ball, this.obtacles.Rock3);
+        this.physics.add.collider(this.ball, this.obtacles.Rock1);
+        this.physics.add.collider(this.ball, this.obtacles.Rock2);
+        this.physics.add.collider(this.ball, this.obtacles.Rock3);
 
         this.pManager = new PinManager(this, 600, 450, 40);
         //Añadimos colisiones
