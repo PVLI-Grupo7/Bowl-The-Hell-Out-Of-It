@@ -1,6 +1,7 @@
 import NormalBall from "../Game_Objects/Auras/BolaNormal.js";
 import Wall from "../Game_Objects/Wall.js";
 import Obstacle from "../Game_Objects/Obstacle.js";
+import PinManager from "../Game_Objects/PinManager.js";
 
 export default class Trial_Scene_Adan extends Phaser.Scene {
     constructor() {
@@ -37,14 +38,33 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
         this.physics.add.collider(this.ball, this.box.wallLeft);
         this.physics.add.collider(this.ball, this.box.wallRight);
 
-        this.obtacles = {};
-        this.obtacles.Rock1 = new Obstacle(this, 400, 450 , "Roca" , 15);
-        this.obtacles.Rock2 = new Obstacle(this, 500, 400 , "Roca" , 15);
-        this.obtacles.Rock3 = new Obstacle(this, 500, 500 , "Roca" , 15);
+        // this.obtacles = {};
+        // this.obtacles.Rock1 = new Obstacle(this, 400, 450 , "Roca" , 15);
+        // this.obtacles.Rock2 = new Obstacle(this, 500, 400 , "Roca" , 15);
+        // this.obtacles.Rock3 = new Obstacle(this, 500, 500 , "Roca" , 15);
 
-        this.physics.add.collider(this.ball, this.obtacles.Rock1);
-        this.physics.add.collider(this.ball, this.obtacles.Rock2);
-        this.physics.add.collider(this.ball, this.obtacles.Rock3);
+        // this.physics.add.collider(this.ball, this.obtacles.Rock1);
+        // this.physics.add.collider(this.ball, this.obtacles.Rock2);
+        // this.physics.add.collider(this.ball, this.obtacles.Rock3);
+
+        this.pManager = new PinManager(this, 600, 450, 40);
+        //Añadimos colisiones
+        for(let c = 0; c < this.pManager.pins.length; c++){
+
+            this.physics.add.collider(this.pManager.pins[c], this.box.wallUp);
+            this.physics.add.collider(this.pManager.pins[c], this.box.wallDown);
+            this.physics.add.collider(this.pManager.pins[c], this.box.wallLeft);
+            this.physics.add.collider(this.pManager.pins[c], this.box.wallRight);
+            //Cuando colisiona con la bola se cae
+            this.physics.add.collider(this.ball, this.pManager.pins[c], (ball, pin) => {
+                pin.knockDown();
+            });
+        }
+        //Para que colisionen entre ellos
+        this.physics.add.collider(this.pManager.pins, this.pManager.pins, (a, b) => {
+            a.knockDown();
+            b.knockDown();
+        });
     }
 
     update(time,delta){

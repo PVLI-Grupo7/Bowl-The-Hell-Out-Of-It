@@ -34,7 +34,7 @@ export default class BowlingBall extends Phaser.GameObjects.Sprite{
         this.arrowOSpeed = 0.003;
         this.powerOSpeed = 0.004;
         this.stage = 0;
-        this.maxSpeed = 300;
+        this.maxSpeed = 800;
         //Inputs
         scene.input.on("pointerdown", this.onClick, this);
         scene.input.keyboard.on("keydown-R", this.reset,this);
