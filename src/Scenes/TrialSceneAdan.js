@@ -18,7 +18,7 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
 
         
         this.add.text(this.scale.width/2,this.scale.height/2 - 200,
-            "Para avanzar a la tienda derriba todos los pines    \n cuando la bola se salga o se quede quieta esta respawneara",{
+            "Para avanzar a la tienda derriba todos los pines    \n cuando la bola se salga o se quede quieta esta respawneara \n \n El enemigo existe pero implementamos los bolos hoy así que no dío tiempo unirlos",{
             fontFamily: "Arial",
             align: "center",
             fontSize: 25,
@@ -56,6 +56,8 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
             a.launch(b.body.velocity, b.body.center)
             b.launch(a.body.velocity, a.body.center);
         });
+
+        this.createNewBall();
     }
 
     update(time,delta){
