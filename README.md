@@ -23,3 +23,5 @@ Imagen Restock.jpg sacado de la pagina de famdon de [The Bindding Of ISaac](http
 Sprite de protag_temporaryIdle.png sacado de la pagina de famdon de [Yosafire](https://okegom.fandom.com/wiki/Yosafire/Sprite_Gallery).  
 
 
+[![tienda|30](/src/imagesMK/tienda.png)]
+[![leveñ|30](/src/imagesMK/level.png)]
