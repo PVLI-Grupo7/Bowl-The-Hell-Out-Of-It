@@ -1,7 +1,7 @@
 import ItemTienda from "../Game_Objects/ItemTienda.js";
 import Player from "../Game_Objects/Player.js";
 import Inventario from "../Game_Objects/inventario.js";
-import NormalBall from "../Game_Objects/Auras/BolaNormal.js";
+import bola from "../Game_Objects/BowlingBall.js";
 import Wall from "../Game_Objects/Wall.js";
 
 export default class EscenaAlejandro extends Phaser.Scene {
@@ -22,8 +22,6 @@ export default class EscenaAlejandro extends Phaser.Scene {
     }
 
     create(){
-        //Para la demo
-        this.changeScene = false;
         //Imagen de fondo de la tiena
         this.tienda = this.add.image(0, 0, "Tienda").setOrigin(0,0);
         this.tienda.setDisplaySize(this.scale.width,this.scale.height);
@@ -48,10 +46,6 @@ export default class EscenaAlejandro extends Phaser.Scene {
         this.arrow = this.add.image(680, 268, "redArrow").setOrigin(0,0);
         this.arrow.setScale(0.25);
         this.arrow.setDepth(1);
-
-        // this.physics.add.collider(this.ball,this.arrow, ()=> {
-        //     this.changeScene = true;
-        // });
         
 
         //Creacion de los items de restock, junto a sus fisicas
@@ -71,7 +65,7 @@ export default class EscenaAlejandro extends Phaser.Scene {
 
 
         //Creacion de la bola
-        this.ball = new NormalBall(this, 200, 300, "Ball_Prototype" ,0, 50, 2, 100);
+        this.ball = new bola(this, 200, 300, "Ball_Prototype", Phaser.Math.Between(0, 15), 50, 2, 100);
 
 
         //Aqui se crea el jugador y su inventario (si no existe ya)
@@ -145,6 +139,12 @@ export default class EscenaAlejandro extends Phaser.Scene {
         //Hack de gemas infinitas clash royale (funciona en 2017!)
         this.teclaM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
         this.teclaM.on("down", () => {this.activaCheats();});
+
+        this.physics.add.existing(this.arrow);
+        this.arrow.body.setImmovable(true);
+        this.physics.add.collider(this.ball, this.arrow, ()=> {
+            this.scene.start("Trial_Scene_Adan");
+        });
     }
 
     activaCheats(){
@@ -211,8 +211,10 @@ export default class EscenaAlejandro extends Phaser.Scene {
         item.on("pointerout", () => {this.info.setVisible(false);});
     }
     update(time,delta){
+        if (!this.ball || !this.ball.active || !this.ball.body) {
+            return;
+        }
         this.ball.update(time,delta);
         if((this.ball.hasAlreadyBeenTrown && (this.ball.body.velocity.x == 0 && this.ball.body.velocity.y == 0)))this.ball.reset();
-        //if (this.changeScene) this.scene.start("Trial_Scene_Adan");
     }
 }

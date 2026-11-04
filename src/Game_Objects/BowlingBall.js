@@ -48,6 +48,10 @@ export default class BowlingBall extends Phaser.GameObjects.Sprite{
     }
 
     update(time,delta){
+
+        if (!this.active || !this.body) {
+            return;
+        }
         //Metodo para aplicar el movimiento
         this.updateMovement(delta);
 
@@ -60,6 +64,8 @@ export default class BowlingBall extends Phaser.GameObjects.Sprite{
     }
 
     updateMovement(delta){
+
+        if (!this.body) return;
 
         const vx = this.body.velocity.x;
         const vy = this.body.velocity.y;

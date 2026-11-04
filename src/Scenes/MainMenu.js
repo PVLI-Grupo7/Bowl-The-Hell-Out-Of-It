@@ -34,7 +34,7 @@ export default class MainMenu extends Phaser.Scene {
         button_alejandro.setInteractive();
         button_alejandro.on("pointerup",()=>{this.scene.start("EscenaAlejandro");})
 
-        let button_javier = this.add.image(this.scale.width - 200,this.scale.height/3,"escena");
+        let button_javier = this.add.image(this.scale.width - 200,this.scale.height/3,"escena").setScale(0.4,0.4);
         button_javier.setInteractive();
         button_javier.on("pointerup",()=>{this.scene.start("EscenaJavier");})
     }

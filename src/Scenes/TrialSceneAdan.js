@@ -1,4 +1,5 @@
-import NormalBall from "../Game_Objects/Auras/BolaNormal.js";
+
+import ball from "../Game_Objects/BowlingBall.js";
 import Wall from "../Game_Objects/Wall.js";
 import Obstacle from "../Game_Objects/Obstacle.js";
 import PinManager from "../Game_Objects/PinManager.js";
@@ -49,7 +50,6 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
             this.physics.add.collider(this.pManager.pins[c], this.box.wallUp);
             this.physics.add.collider(this.pManager.pins[c], this.box.wallDown);
             this.physics.add.collider(this.pManager.pins[c], this.box.wallLeft);
-
         }
         //Para que colisionen entre ellos
         this.physics.add.overlap(this.pManager.pins, this.pManager.pins, (a, b) => {
@@ -70,7 +70,7 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
 
     //Metodos extra para la demo
     createNewBall(){
-        this.ball = new NormalBall(this, 100, 450, "Ball" ,Phaser.Math.Between(0, 15) , 50);
+        this.ball = new ball(this, 100, 450, "Ball" ,Phaser.Math.Between(0, 15) , 50, 2, 100);
 
         this.ballColliders = [];
         this.ballColliders.push(
