@@ -28,7 +28,7 @@ export default class MainMenu extends Phaser.Scene {
 
         let button_Trial_Scene1 = this.add.image(this.scale.width/4,this.scale.height/3,"Button_Scene_Adan");
         this.add.text(this.scale.width/2,this.scale.height*2/3,
-            "El botón a la izquierda es la version más avanzada, \n el del medio es la tienda y el de la derecha es una prueba para el enemigo (instancia un objeto al ser invocado, hay que darle a la w repetidas veces para que muera)",{
+            "El botón a la izquierda es la version más avanzada, \n el del medio es la tienda y el de la derecha es una prueba para el enemigo \n (instancia un objeto al ser invocado, hay que darle a la w repetidas veces para que muera)",{
             fontFamily: "Arial",
             align: "center",
             fontSize: 15,
