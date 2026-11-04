@@ -1,6 +1,6 @@
-export default class BowlingBall extends Phaser.GameObjects.Image{
-    constructor(scene, x, y, texture, radious, weight = 2, lives = 3){
-        super(scene, x, y, texture);
+export default class BowlingBall extends Phaser.GameObjects.Sprite{
+    constructor(scene, x, y, texture, frame, radious, weight = 2, lives = 3){
+        super(scene, x, y, texture, frame);
         
         this.scene.add.existing(this);
 
@@ -9,11 +9,14 @@ export default class BowlingBall extends Phaser.GameObjects.Image{
         this.body.setCircle(this.width/2);
         this.body.setBounce(0.75);
 
+
         this.setDisplaySize(radious,radious);
+        this.setDepth(100);
 
         //Propiedades de la bola (En el futuro quizas tenga un constructor masivo donde se le pasen todas sus propiedades)
         //Peso, ligero = 1, medio = 2, pesado = 3
         this.weight = weight;
+
         this.lives = lives;
         
         //Guardamos la pos inicial
@@ -49,23 +52,31 @@ export default class BowlingBall extends Phaser.GameObjects.Image{
     }
 
     update(time,delta){
+        //Metodo para aplicar el movimiento
+        this.updateMovement(delta);
+
+        //Giramos el sprite segun la velocidad
+        this.angle += (this.spinSpeed * (delta /1000) * this.body.velocity.length());
+
+
+        this.updateBars(time);
+        
+    }
+
+    updateMovement(delta){
+
         const vx = this.body.velocity.x;
         const vy = this.body.velocity.y;
 
         //Aplicamos friccion
         const drag = Math.exp(-this.friction * delta / 1000);
         this.body.setVelocity(vx* drag, vy* drag);
-   
-        //Giramos el sprite segun la velocidad
-        this.angle += (this.spinSpeed * (delta /1000) * this.body.velocity.length());
 
         //Frenamos la bola si esta cerca de pararse para que no se mueva demasiado tiempo
         if (this.body.velocity.length()  < 8){
             this.body.setVelocity(0,0);
         }
 
-        this.updateBars(time);
-        
     }
 
     updateBars(time){

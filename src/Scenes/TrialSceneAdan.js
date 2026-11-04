@@ -1,4 +1,4 @@
-import BowlingBall from "../Game_Objects/BowlingBall.js";
+import NormalBall from "../Game_Objects/Auras/BolaNormal.js";
 import Wall from "../Game_Objects/Wall.js";
 import Obstacle from "../Game_Objects/Obstacle.js";
 
@@ -24,7 +24,7 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
     }
 
     create(){
-        this.ball = new BowlingBall(this, 100, 450, "Ball_Prototype" , 50);
+        this.ball = new NormalBall(this, 100, 450, "Ball" ,Phaser.Math.Between(0, 15) , 50);
 
         this.box = {};
         this.box.wallUp = new Wall(this, this.scale.width/2, 300, "Wall_Prototype", this.scale.width, 30);

@@ -14,6 +14,9 @@ let config = {
 	width:  800,
 	height: 600,
 	pixelArt: true,
+	render:{
+		roundPixels: true
+	},
 	scale: {
 		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
 	},
@@ -25,7 +28,7 @@ let config = {
 		default: 'arcade', 
 		arcade: { 
 			gravity: { y: 0 }, 
-			debug: true 
+			debug: false 
 		} 
 	}
 };

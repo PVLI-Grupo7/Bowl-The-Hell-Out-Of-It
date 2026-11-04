@@ -9,6 +9,10 @@ export default class BootScene extends Phaser.Scene {
         this.load.image("Ball_Prototype","src/Game_Art/Ball_Prototype.png");
         this.load.image("Wall_Prototype","src/Game_Art/Wall_Prototype.png");
         this.load.image("Roca","src/Game_Art/Roca.png");
+        this.load.spritesheet("Ball" , "src/Game_Art/Ball_Final/Bolas64x64px.png", {
+            frameWidth:16,
+            frameHeight:16
+        });
 
         this.load.image("Tienda","src/Game_Art/FondoTiendaTemporal.png");
 
