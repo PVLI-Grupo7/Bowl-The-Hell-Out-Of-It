@@ -145,6 +145,16 @@ export default class EscenaAlejandro extends Phaser.Scene {
         this.physics.add.collider(this.ball, this.arrow, ()=> {
             this.scene.start("Trial_Scene_Adan");
         });
+
+
+        //Menú de pausa
+        this.teclaEscape = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+        this.teclaEscape.on("down", () => {
+            if (this.scene.isActive("menuPausa")) return;   //sólo se puede abrir si está cerrada
+            //lanzo la escena y mando el key de esta para que el init del menu de pausa lo pille
+            this.scene.launch("menuPausa", {previousScene: this.scene.key});
+            this.scene.pause();
+        })
     }
 
     activaCheats(){
@@ -170,9 +180,6 @@ export default class EscenaAlejandro extends Phaser.Scene {
             do {
                 nbola = this.listaBolo[Phaser.Math.Between(0, 2)];
             } while(nbola == this.numRandomBola);
-
-            console.log(npin == this.numRandomPin);
-            console.log(nbola == this.numRandomBola);
 
             this.numRandomPin = npin;
             this.numRandomBola = nbola;

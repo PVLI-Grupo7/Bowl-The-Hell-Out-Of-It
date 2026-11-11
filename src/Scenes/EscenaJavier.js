@@ -21,7 +21,6 @@ constructor() {
     // inicializamos
     create () // aqui mejor poner sprites, variables y entrada
     {
-
         // usamos this para que sean accesibles desde "Enemigo"
 
         this.enemigo = new Enemigo(this, this.scale.width / 2, this.scale.height / 2, "enemigo", 500, 500);
@@ -29,6 +28,15 @@ constructor() {
         this.obstaculo = this.enemigo.invocarObstaculo(this.scale.width / 1.5, this.scale.height / 2, "Roca", 25);
 
         this.teclaW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+
+        //Menú de pausa
+        this.teclaEscape = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+        this.teclaEscape.on("down", () => {
+            if (this.scene.isActive("menuPausa")) return;   //sólo se puede abrir si está cerrada
+            //lanzo la escena y mando el key de esta para que el init del menu de pausa lo pille
+            this.scene.launch("menuPausa", {previousScene: this.scene.key});
+            this.scene.pause();
+        })
     }
  
 
