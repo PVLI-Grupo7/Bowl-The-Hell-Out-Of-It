@@ -49,7 +49,7 @@ export default class MainMenu extends Phaser.Scene {
         button_diego.setInteractive();
         button_diego.on("pointerup",()=>{
             //Guardamos el nivel en el que empieza
-            this.registry.set("level" , 2);    
+            this.registry.set("level" , 0);    
             this.scene.start("Level_Diego");
         })
 

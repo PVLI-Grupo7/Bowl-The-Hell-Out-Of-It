@@ -67,6 +67,9 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
             this.scene.launch("menuPausa", {previousScene: this.scene.key});
             this.scene.pause();
         })
+
+        //Resetar con R
+        this.input.keyboard.on("keydown-R", this.resetBall,this);
     }
 
     update(time,delta){
@@ -121,5 +124,16 @@ export default class Trial_Scene_Adan extends Phaser.Scene {
     //Metodo para la demo
     allPinsDown() {
     return this.pManager.pins.every(pin => pin.hasBeenLaunched);
+    }
+
+    resetBall(){
+        if(!this.ball) return;
+
+        //Si no se ha lanzado no resta vida
+        if(this.ball.hasAlreadyBeenTrown) this.killBall();
+        else {
+            this.ballsLeft++;
+            this.killBall();
+        }
     }
 }

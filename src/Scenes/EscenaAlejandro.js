@@ -146,7 +146,7 @@ export default class EscenaAlejandro extends Phaser.Scene {
         //     this.scene.start("Trial_Scene_Adan");
         // });
         this.physics.add.collider(this.ball, this.arrow, ()=> {
-            this.scene.start("Level_Diego");
+            this.scene.start("Trial_Scene_Adan");
         });
 
 
@@ -159,6 +159,9 @@ export default class EscenaAlejandro extends Phaser.Scene {
             this.scene.launch("menuPausa", {previousScene: this.scene.key});
             this.scene.pause();
         })
+
+        //Para resetear
+        this.input.keyboard.on("keydown-R", () => this.ball.reset());
     }
 
     activaCheats(){
