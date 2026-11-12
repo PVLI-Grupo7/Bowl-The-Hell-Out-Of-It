@@ -40,7 +40,6 @@ export default class BowlingBall extends Phaser.GameObjects.Sprite{
         this.maxSpeed = 800;
         //Inputs
         scene.input.on("pointerdown", this.onClick, this);
-        scene.input.keyboard.on("keydown-R", this.reset,this);
         // Flechas
         this.arrow = scene.add.rectangle(this.x, this.y, 100, 10, 0xffffff).setOrigin(0,0.5);
         this.powerBar = scene.add.rectangle(this.x - 50, this.y + 50, 10, 100, 0xff0000).setOrigin(0.5, 1).setVisible(false); 

@@ -45,6 +45,14 @@ export default class MainMenu extends Phaser.Scene {
         button_javier.setInteractive();
         button_javier.on("pointerup",()=>{this.scene.start("EscenaJavier");})
 
+        let button_diego = this.add.image(this.scale.width/2,this.scale.height/2,"xd");
+        button_diego.setInteractive();
+        button_diego.on("pointerup",()=>{
+            //Guardamos el nivel en el que empieza
+            this.registry.set("level" , 2);    
+            this.scene.start("Level_Diego");
+        })
+
 
     }
 }

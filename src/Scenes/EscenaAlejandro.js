@@ -142,9 +142,13 @@ export default class EscenaAlejandro extends Phaser.Scene {
 
         this.physics.add.existing(this.arrow);
         this.arrow.body.setImmovable(true);
+        // this.physics.add.collider(this.ball, this.arrow, ()=> {
+        //     this.scene.start("Trial_Scene_Adan");
+        // });
         this.physics.add.collider(this.ball, this.arrow, ()=> {
-            this.scene.start("Trial_Scene_Adan");
+            this.scene.start("Level_Diego");
         });
+
 
 
         //Menú de pausa
