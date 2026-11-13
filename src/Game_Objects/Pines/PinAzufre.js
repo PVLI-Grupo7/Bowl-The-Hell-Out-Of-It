@@ -1,0 +1,1 @@
+//Este archivo esta creado por que esta listado como pin en la seccion de pines del gdd, pero esto creo que es solo una concurrencia, cuando me asegure lo elimino

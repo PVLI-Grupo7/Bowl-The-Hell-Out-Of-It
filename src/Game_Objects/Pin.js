@@ -27,6 +27,14 @@ export default class Pin extends Phaser.GameObjects.Image{
         this.speedAbsorvedPercent = 0.5;
         this.hasBeenLaunched = false;
 
+
+        //Añadidos para el sistema de puntajes
+        this.points = 1; //En promedio suele ser este el puntaje que otorgan la mayoria de pines al ser derribado
+        this.effectPostLaunch = false; //Si pondra en true cuando las variantes de los pines hagan algo extra al ser lanzados
+
+        this.initialX = x;
+        this.initialY = y;
+
     }
 
     knockDown(){
@@ -61,8 +69,21 @@ export default class Pin extends Phaser.GameObjects.Image{
             //Tumbamos el pin
             this.knockDown()
             this.hasBeenLaunched = true;
+            if (this.effectPostLaunch) this.extraEffect();
             return true;
         }
 
+    }
+
+    //Metodo que de normal no hace nada, pero que cada pin que lo necesite cambiara
+    extraEffect(){
+        return;
+    }
+
+    resetPin(){
+        this.x = this.initialX;
+        this.y = this.initialY;
+        this.setAngle(0);
+        this.hasBeenLaunched = false;
     }
 }
