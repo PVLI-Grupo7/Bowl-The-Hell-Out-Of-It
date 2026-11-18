@@ -1,7 +1,7 @@
 import Pin from "./Pin.js";
 
 export default class PinManager {
-    constructor(scene, x, y, spacing, texture = "bolo"){
+    constructor(scene, x, y, spacing, player = null, texture = "bolo"){
         
         this.scene = scene;
 
@@ -20,7 +20,7 @@ export default class PinManager {
             const startY = y - (pinsInRow - 1) * spacing / 2;
 
             for(let i = 0; i < pinsInRow; i++){
-                const pin = new Pin(scene, rowX, startY + i * spacing, texture, 25, 60);
+                const pin = new Pin(scene, rowX, startY + i * spacing, texture, 25, 60, player);
                 this.pins.push(pin);
             }
         }

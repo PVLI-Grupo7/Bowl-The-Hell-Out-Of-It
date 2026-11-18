@@ -1,9 +1,10 @@
-
+import Player from "../Game_Objects/Player.js"
 import ball from "../Game_Objects/BowlingBall.js";
 import Wall from "../Game_Objects/Wall.js";
 import Obstacle from "../Game_Objects/Obstacle.js";
 import PinManager from "../Game_Objects/PinManager.js";
 import Levels from "../Game_Objects/Levels.js";
+import Inventario from "../Game_Objects/inventario.js"
 
 export default class EscenaDiego extends Phaser.Scene {
     constructor() {
@@ -11,19 +12,19 @@ export default class EscenaDiego extends Phaser.Scene {
     }
 
     preload(){
-
-        
-        this.add.text(this.scale.width/2,this.scale.height/2 - 200,
-            "Para avanzar a la tienda derriba todos los pines    \n cuando la bola se salga o se quede quieta esta respawneara \n \n El enemigo existe pero implementamos los bolos hoy así que no dío tiempo unirlos",{
-            fontFamily: "Arial",
-            align: "center",
-            fontSize: 25,
-            color: "rgb(26, 194, 14)"
-        }).setOrigin(0.5);
     }
 
     create(){
         
+        //Aqui se crea el jugador y su inventario (si no existe ya)
+        if (!this.game.registry.has("inventario")) {
+            this.game.registry.set("inventario", new Inventario());
+        }
+        this.inventario = this.game.registry.get("inventario");
+        this.player = new Player(this, 300, 200, "ProtaIdle", this.inventario);
+        this.player.setFlipX(true);
+
+        this.textScore = this.add.text(600, 200, "Puntos: " + this.player.score, { font: "20px Arial", fill: "#272525" }).setOrigin(0, 0).setScrollFactor(0,0);
 
         this.box = {};
         this.box.wallUp = new Wall(this, this.scale.width/2, 300, "Wall_Prototype", this.scale.width, 30);
@@ -45,7 +46,7 @@ export default class EscenaDiego extends Phaser.Scene {
         console.log(this.obsPos.length);
         //Guardamos las vidas
         this.ballsLeft = this.levelData.lives;
-        this.pManager = new PinManager(this, 650, 450, 40);
+        this.pManager = new PinManager(this, 650, 450, 40, this.player);
         //Añadimos colisiones
         for(let c = 0; c < this.pManager.pins.length; c++){
 
@@ -100,7 +101,10 @@ export default class EscenaDiego extends Phaser.Scene {
             }
             return;
         }
-        if (!this.ball) this.createNewBall();
+        if (!this.ball) 
+            {
+                this.createNewBall();
+            }
         this.ball.update(time,delta);
         if(this.ball.body.left > this.scale.width || (this.ball.hasAlreadyBeenTrown && (this.ball.body.velocity.x == 0 && this.ball.body.velocity.y == 0)))this.killBall();
     }
@@ -110,6 +114,8 @@ export default class EscenaDiego extends Phaser.Scene {
         if(this.ballsLeft <= 0){
             return;
         } 
+
+        this.player.bolasLanzadas();
         this.ball = new ball(this, 100, 450, "Ball" ,Phaser.Math.Between(0, 15) , 50, 2, this.ballsLeft);
 
         this.ballColliders = [];
@@ -170,5 +176,9 @@ export default class EscenaDiego extends Phaser.Scene {
         console.log("Has perdido :(");
         this.scene.start("MainMenu");
         return;
+    }
+
+    getPlayer(){
+        return this.player;
     }
 }

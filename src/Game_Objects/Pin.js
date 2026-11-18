@@ -1,5 +1,6 @@
+
 export default class Pin extends Phaser.GameObjects.Image{
-    constructor(scene, x, y, texture, width, height){
+    constructor(scene, x, y, texture, width, height, player = null){
         super(scene, x, y, texture);
 
         this.scene.add.existing(this);
@@ -35,13 +36,24 @@ export default class Pin extends Phaser.GameObjects.Image{
         this.initialX = x;
         this.initialY = y;
 
+        this.player = player;
+    }
+
+    preload(){
+        if (!this.game.registry.has("player")) {
+            return;
+        }
+        this.player = this.game.registry.get("player");
     }
 
     knockDown(){
         if(this.isDown) return;
-        
         this.isDown = true;
         this.fallingAnimation();
+
+        
+        if (this.player)
+            this.player.pinTirado(this.points);
     }
 
     fallingAnimation(){
