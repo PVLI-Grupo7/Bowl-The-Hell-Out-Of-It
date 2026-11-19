@@ -105,24 +105,9 @@ export default class EscenaDiego extends Phaser.Scene {
         // }
         if (!this.ball) 
             {
-                //Sumo 1 al contador de lanzamientos o dos en caso de pleno
-                
-
-
-                if (this.trows % 2 == 0){
-                    if (this.pManager.checkDownPins()){
-                        this.trows = this.trows + 2;
-                        this.pManager.resetPins();
-                    }
-                    else this.trows++;
-                } 
-                else {
-                    this.trows++;
-                    this.pManager.resetPins();
-                }
-                
-
                 this.createNewBall();
+                //Se encarga de controlar el reinicio de los pines
+                this.updateTrows();
             }
         this.ball.update(time,delta);
         if(this.ball.body.left > this.scale.width || (this.ball.hasAlreadyBeenTrown && (this.ball.body.velocity.x == 0 && this.ball.body.velocity.y == 0)))this.killBall();
@@ -199,5 +184,25 @@ export default class EscenaDiego extends Phaser.Scene {
 
     getPlayer(){
         return this.player;
+    }
+
+    updateTrows(){
+
+        this.time.delayedCall(300, ()=>{
+
+            if (this.trows % 2 == 0){
+                if (this.pManager.checkDownPins()){
+                    this.trows = this.trows + 2;
+                    this.pManager.resetPins();
+                }
+                else this.trows++;
+            } 
+            else {
+                this.trows++;
+                this.pManager.resetPins();
+            }
+
+        })
+                
     }
 }
