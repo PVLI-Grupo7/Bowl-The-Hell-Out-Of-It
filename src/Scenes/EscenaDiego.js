@@ -77,32 +77,51 @@ export default class EscenaDiego extends Phaser.Scene {
         //Resetar con R
         this.input.keyboard.on("keydown-R", this.resetBall,this);
 
+
+        this.trows = 0;
     }
 
     update(time,delta){
-        if (this.allPinsDown()){
-         this.actualLvl = this.registry.get("level")
-         if(this.actualLvl >= 2){
-            console.log("¡Has ganado!!");
-            this.scene.start("MainMenu");
-            return;
-         }
-         this.actualLvl++;
-         this.registry.set("level", this.actualLvl);
-         this.scene.start("EscenaAlejandro");
-         return;
-        }
+        // if (this.allPinsDown()){
+        //  this.actualLvl = this.registry.get("level")
+        //  if(this.actualLvl >= 2){
+        //     console.log("¡Has ganado!!");
+        //     this.scene.start("MainMenu");
+        //     return;
+        //  }
+        //  this.actualLvl++;
+        //  this.registry.set("level", this.actualLvl);
+        //  this.scene.start("EscenaAlejandro");
+        //  return;
+        // }
 
-        if(this.ballsLeft <= 0){
-            if(!this.defeated){
-                this.defeated = true;
-                //Ponemos delay por si acaso hay algun bolo moviendose
-                this.time.delayedCall(2000, () => this.checkDefeat());
-            }
-            return;
-        }
+        // if(this.ballsLeft <= 0){
+        //     if(!this.defeated){
+        //         this.defeated = true;
+        //         //Ponemos delay por si acaso hay algun bolo moviendose
+        //         this.time.delayedCall(2000, () => this.checkDefeat());
+        //     }
+        //     return;
+        // }
         if (!this.ball) 
             {
+                //Sumo 1 al contador de lanzamientos o dos en caso de pleno
+                
+
+
+                if (this.trows % 2 == 0){
+                    if (this.pManager.checkDownPins()){
+                        this.trows = this.trows + 2;
+                        this.pManager.resetPins();
+                    }
+                    else this.trows++;
+                } 
+                else {
+                    this.trows++;
+                    this.pManager.resetPins();
+                }
+                
+
                 this.createNewBall();
             }
         this.ball.update(time,delta);
@@ -111,9 +130,9 @@ export default class EscenaDiego extends Phaser.Scene {
 
     //Metodos extra para la demo
     createNewBall(){
-        if(this.ballsLeft <= 0){
-            return;
-        } 
+        // if(this.ballsLeft <= 0){
+        //     return;
+        // } 
 
         this.player.bolasLanzadas();
         this.ball = new ball(this, 100, 450, "Ball" ,Phaser.Math.Between(0, 15) , 50, 2, this.ballsLeft);

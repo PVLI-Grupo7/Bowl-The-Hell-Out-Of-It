@@ -25,4 +25,14 @@ export default class PinManager {
             }
         }
     }
+
+    resetPins(){
+        this.pins.forEach(pin => {
+            pin.resetPin();
+        });
+    }
+
+    checkDownPins(){
+        return this.pins.every(pin => pin.isDown);
+    }
 }

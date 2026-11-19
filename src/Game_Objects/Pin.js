@@ -93,9 +93,38 @@ export default class Pin extends Phaser.GameObjects.Image{
     }
 
     resetPin(){
-        this.x = this.initialX;
-        this.y = this.initialY;
-        this.setAngle(0);
-        this.hasBeenLaunched = false;
+        this.body.setEnable(false);
+
+        this.scene.tweens.add({
+            targets: this,
+            alpha: 0,
+            duration: 500,
+            ease: 'linear',
+
+            onComplete: () => {
+            this.setPosition(this.initialX, this.initialY);
+            this.setAngle(0);
+            
+            this.hasBeenLaunched = false;
+            this.isDown = false;
+
+            this.body.reset(this.initialX,this.initialY);
+
+            
+            this.scene.tweens.add({
+                targets: this,
+                alpha: 1,
+                duration: 500,
+                ease: 'Linear',
+
+                onComplete: () => {
+                    this.body.setEnable(true);
+                }
+
+            });
+
+            }
+        });
+
     }
 }
