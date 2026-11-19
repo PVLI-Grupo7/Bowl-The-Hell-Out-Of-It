@@ -15,16 +15,18 @@ export default class EscenaDiego extends Phaser.Scene {
     }
 
     create(){
-        
         //Aqui se crea el jugador y su inventario (si no existe ya)
         if (!this.game.registry.has("inventario")) {
             this.game.registry.set("inventario", new Inventario());
         }
         this.inventario = this.game.registry.get("inventario");
-        this.player = new Player(this, 300, 200, "ProtaIdle", this.inventario);
+        this.player = new Player(this, 300, 200, "ProtaIdle", this.inventario, 
+            (nuevaPuntuacion) => {textScore.setText("Puntos: " + nuevaPuntuacion);});
         this.player.setFlipX(true);
 
-        this.textScore = this.add.text(600, 200, "Puntos: " + this.player.score, { font: "20px Arial", fill: "#272525" }).setOrigin(0, 0).setScrollFactor(0,0);
+        const textScore = this.add.text(600, 100, "Puntos: " + this.player.score, { font: "34px Arial", fill: "#dbd3d3" });
+        textScore.setOrigin(0, 0);
+        textScore.setScrollFactor(0,0);
 
         this.box = {};
         this.box.wallUp = new Wall(this, this.scale.width/2, 300, "Wall_Prototype", this.scale.width, 30);
@@ -180,10 +182,6 @@ export default class EscenaDiego extends Phaser.Scene {
         console.log("Has perdido :(");
         this.scene.start("MainMenu");
         return;
-    }
-
-    getPlayer(){
-        return this.player;
     }
 
     updateTrows(){

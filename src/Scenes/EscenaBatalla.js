@@ -13,6 +13,7 @@ export default class EscenaBatalla extends Phaser.Scene {
     }
 
     create() {
+
         //vemos si hay inventario
         if (!this.registry.has("inventario")) {
             this.registry.set("inventario", new Inventario());
@@ -20,8 +21,13 @@ export default class EscenaBatalla extends Phaser.Scene {
         this.inventario = this.registry.get("inventario");
 
         //instanciamos a petra arriba a la izquierda
-        this.player = new Player(this, 100, 100, "ProtaIdle", this.inventario);
+        this.player = new Player(this, 100, 100, "ProtaIdle", this.inventario,
+            (nuevaPuntuacion) => {textScore.setText("Puntos: " + nuevaPuntuacion);});
         this.registry.set("player", this.player);
+
+        const textScore = this.add.text(300, 100, "Puntos: " + this.player.score, { font: "34px Arial", fill: "#dbd3d3" });
+        textScore.setOrigin(0, 0);
+        textScore.setScrollFactor(0,0);
 
 
         // creacion del equipo de enemigos

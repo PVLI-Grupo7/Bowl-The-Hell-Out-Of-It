@@ -15,6 +15,7 @@ export default class EscenaAlejandro extends Phaser.Scene {
         this.Restock1;
         this.Restock2;
         this.inventario;
+        this.textoInnecesario;
 
         //Listas de items disponibles en la tienda
         this.listaPin = ["Pin1", "Pin2", "Pin3"];
@@ -74,7 +75,8 @@ export default class EscenaAlejandro extends Phaser.Scene {
         }
         this.inventario = this.game.registry.get("inventario");
 
-        this.player = new Player(this, 60, 300, "ProtaIdle", this.inventario);
+        this.player = new Player(this, 60, 300, "ProtaIdle", this.inventario, 
+            (nuevaPuntuacion) => {this.textoInnecesario.setText("Puntos: " + nuevaPuntuacion);});
         this.player.setFlipX(true);
 
 
