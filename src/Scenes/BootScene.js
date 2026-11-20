@@ -13,6 +13,11 @@ export default class BootScene extends Phaser.Scene {
             frameWidth:16,
             frameHeight:16
         });
+                this.load.spritesheet("Aura" , "src/Game_Art/Ball_Final/Auras72x72px.png", {
+            frameWidth:18,
+            frameHeight:18
+        });
+        this.load.image("ShineMask","src/Game_Art/Ball_Final/Mascara.png")
 
         this.load.image("Tienda","src/Game_Art/FondoTiendaTemporal.png");
 

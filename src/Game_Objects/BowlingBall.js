@@ -1,18 +1,50 @@
-export default class BowlingBall extends Phaser.GameObjects.Sprite{
+export default class BowlingBall extends Phaser.GameObjects.Container{
     constructor(scene, x, y, texture, frame, radious, weight = 2, lives = 3){
-        super(scene, x, y, texture, frame);
+        super(scene, x, y);
         
         this.sceneRef = scene;
         this.scene.add.existing(this);
 
         //Fisicas y config del body
         scene.physics.add.existing(this);
-        this.body.setCircle(this.width/2);
+        this.body.setCircle(radious/2, -radious/2, -radious/2);
         this.body.setBounce(0.75);
+        
 
 
-        this.setDisplaySize(radious,radious);
+
+        //Apariencia de la bola
+        
         this.setDepth(100);
+
+        this.ball = this.scene.add.sprite(0,0,texture,frame).setOrigin(0.5,0.5).setDisplaySize(radious,radious);
+
+      
+        this.aura = 1;
+        if (this.aura != 0){
+
+            this.shine = this.scene.add.sprite(0, 0, 'Aura', this.aura).setOrigin(0.5, 0.5).setDisplaySize(radious*1.2,radious*1.2);
+            this.maskShape = this.scene.add.image(0,0,"ShineMask").setOrigin(0.5,0.5).setDisplaySize(radious*1.2,radious*1.2);
+
+            this.add([this.ball,this.shine,this.maskShape]);
+
+            this.maskShape.setVisible(false);
+            this.shine.enableFilters();
+            this.shine.filters.external.addMask(this.maskShape);
+
+            this.scene.tweens.add({
+                targets: this.maskShape,
+                y: { from: -32, to: 40 },
+                duration: 1200,
+                repeat: -1,
+                yoyo: true,
+                ease: 'Sine.easeInOut'
+            });
+        }
+        else this.add([this.ball]);
+
+
+
 
         //Propiedades de la bola (En el futuro quizas tenga un constructor masivo donde se le pasen todas sus propiedades)
         //Peso, ligero = 1, medio = 2, pesado = 3
@@ -55,7 +87,7 @@ export default class BowlingBall extends Phaser.GameObjects.Sprite{
         this.updateMovement(delta);
 
         //Giramos el sprite segun la velocidad
-        this.angle += (this.spinSpeed * (delta /1000) * this.body.velocity.length());
+        this.ball.angle += (this.spinSpeed * (delta /1000) * this.body.velocity.length());
 
 
         this.updateBars(time);

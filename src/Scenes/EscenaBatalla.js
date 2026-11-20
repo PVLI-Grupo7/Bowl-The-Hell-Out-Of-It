@@ -28,6 +28,9 @@ export default class EscenaBatalla extends Phaser.Scene {
         const textScore = this.add.text(300, 100, "Puntos: " + this.player.score, { font: "34px Arial", fill: "#dbd3d3" });
         textScore.setOrigin(0, 0);
         textScore.setScrollFactor(0,0);
+        
+        //Variable encargada de controlar cuando resetear los pines
+        this.trows = 0;
 
 
         // creacion del equipo de enemigos
@@ -186,12 +189,36 @@ export default class EscenaBatalla extends Phaser.Scene {
         this.player.bolasLanzadas(); 
         this.danoProcesado = 0; // Se resetea para el próximo tiro
 
-        if (this.allPinsDown()) {
-            this.pManager.resetPins(); 
-        }
+        // if (this.allPinsDown()) {
+        //     this.pManager.resetPins(); 
+        // }
+
+        this.updateTrows();
     }
 
     allPinsDown() {
         return this.pManager.pins.every(pin => pin.hasBeenLaunched);
+    }
+
+    updateTrows(){
+
+        this.time.delayedCall(300, ()=>{
+
+            if (this.trows % 2 == 0){
+                if (this.pManager.checkDownPins()){
+                    this.trows = this.trows + 2;
+                    this.pManager.resetPins();
+                }
+                else this.trows++;
+            } 
+            else {
+                this.trows++;
+                this.pManager.resetPins();
+            }
+
+            console.log(this.trows);
+
+        })
+                
     }
 }
