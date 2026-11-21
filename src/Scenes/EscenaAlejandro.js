@@ -69,14 +69,19 @@ export default class EscenaAlejandro extends Phaser.Scene {
         this.ball = new bola(this, 200, 300, "Ball_Prototype", Phaser.Math.Between(0, 15), 50, 2, 100);
 
 
-        //Aqui se crea el jugador y su inventario (si no existe ya)
-        if (!this.game.registry.has("inventario")) {
-            this.game.registry.set("inventario", new Inventario());
+        //Aqui se crea el jugador y su inventario (si no existen ya)
+        if (!this.registry.has("inventario")) {
+            this.registry.set("inventario", new Inventario());
         }
-        this.inventario = this.game.registry.get("inventario");
+        this.inventario = this.registry.get("inventario");
 
-        this.player = new Player(this, 60, 300, "ProtaIdle", this.inventario, 
-            (nuevaPuntuacion) => {this.textoInnecesario.setText("Puntos: " + nuevaPuntuacion);});
+        if (!this.registry.has("player")){
+            this.registry.set("player", new Player(this, 60, 300, "ProtaIdle", this.inventario, 
+            (nuevaPuntuacion) => {this.textoInnecesario.setText("Puntos: " + nuevaPuntuacion)}))
+        }
+        this.player = this.registry.get("player");
+        this.player.x = 60;
+        this.player.y = 300;
         this.player.setFlipX(true);
 
 
@@ -145,7 +150,7 @@ export default class EscenaAlejandro extends Phaser.Scene {
         this.physics.add.existing(this.arrow);
         this.arrow.body.setImmovable(true);
         this.physics.add.collider(this.ball, this.arrow, ()=> {
-            this.scene.start("Level_Diego");
+            this.scene.start("EscenaBatalla");
         });
 
 

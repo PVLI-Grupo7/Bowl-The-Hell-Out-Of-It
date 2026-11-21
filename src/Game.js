@@ -6,6 +6,7 @@ import EscenaJavier from "./Scenes/EscenaJavier.js";
 import menuPausa from "./Scenes/menuPausa.js";
 import EscenaDiego from "./Scenes/EscenaDiego.js";
 import EscenaBatalla from './Scenes/EscenaBatalla.js';
+import tiendaAzufre from "./Scenes/tiendaAzufre.js";
 
 /**
  * Inicio del juego en Phaser. Creamos el archivo de configuración del juego y creamos
@@ -23,7 +24,7 @@ let config = {
 	scale: {
 		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
 	},
-	scene: [BootScene,MainMenu,Trial_Scene_Adan,EscenaAlejandro, EscenaJavier, menuPausa, EscenaDiego, EscenaBatalla],	
+	scene: [BootScene,MainMenu,Trial_Scene_Adan,EscenaAlejandro, EscenaJavier, menuPausa, EscenaDiego, EscenaBatalla, tiendaAzufre],	
 												// Decimos a Phaser cual es nuestra escena, en este caso la escena es un 
 												//objeto formado por el método preload y create definidos más abajo en 
 												//este mismo archivo

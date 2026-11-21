@@ -1,4 +1,5 @@
 import Inventario from '../Game_Objects/inventario.js';
+import Player from '../Game_Objects/Player.js';
 
 export default class MainMenu extends Phaser.Scene {
     constructor() {
@@ -6,17 +7,6 @@ export default class MainMenu extends Phaser.Scene {
     }
 
     create() {
-
-
-        // inciializo el inventario en el registry para que asi se mantengan los datos y puntos de azufre 
-
-        if (!this.registry.has("inventario"))
-        {
-            this.registry.set("inventario", new Inventario());
-        }
-
-        const inventario = this.registry.get("inventario");
-
         // aqui va el titulo del juego
         this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 220,
             "Bowl The Hell Out Of It",{
@@ -26,12 +16,17 @@ export default class MainMenu extends Phaser.Scene {
             color: "rgb(231, 231, 231)"
         }).setOrigin(0.5);
 
+        // inicializo el inventario en el registry para que asi se mantengan los datos y puntos de azufre 
+        if (!this.registry.has("inventario")) {
+            this.registry.set("inventario", new Inventario());
+        }
+        const inventario = this.registry.get("inventario");
+
         this.add.text(20,20, "Pines de azufre: " + inventario.checkSulfur(),{
                 fontFamily: "Arial",
                 fontSize: 22,
                 color: "rgb(13, 87, 207)"
         })
-
 
         // boton para ir a escena de batalla
 
@@ -49,7 +44,7 @@ export default class MainMenu extends Phaser.Scene {
         });
 
         // boton tienda de personajes
-        let botonTienda= this.add.text(this.cameras.main.centerX, this.cameras.main.centerY + 40, "TIENDA", {
+        let botonTienda = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY + 40, "TIENDA", {
              fontFamily: "Arial", 
             color: "rgb(231, 231, 231)" ,
             backgroundColor: "rgb(143, 4, 4)", 
@@ -58,7 +53,7 @@ export default class MainMenu extends Phaser.Scene {
 
         // le he metido un log porque la escena no esta creada todavia
         botonTienda.on("pointerup", () => { // se ejecuta cuando el jugador sueltao el clic del raton
-            console.log("hola quiero gastar mi sulfuro");
+            this.scene.start("tiendaAzufre");
         });
 
         // boton ajustes (he usado el menu de pausa)
@@ -100,10 +95,6 @@ export default class MainMenu extends Phaser.Scene {
         }).setOrigin(0.5);
         button_Trial_Scene1.setInteractive();
         button_Trial_Scene1.on("pointerup",()=>{this.scene.start("Trial_Scene_Adan");})
-
-        let button_alejandro = this.add.image(this.scale.width/2,this.scale.height/3,"Button_Scene_Adan");
-        button_alejandro.setInteractive();
-        button_alejandro.on("pointerup",()=>{this.scene.start("EscenaAlejandro");})
 
         let button_javier = this.add.image(this.scale.width - 200,this.scale.height/3,"escena").setScale(0.4,0.4);
         button_javier.setInteractive();

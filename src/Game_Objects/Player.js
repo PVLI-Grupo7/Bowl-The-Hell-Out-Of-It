@@ -30,11 +30,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
             this.primerDisparo = false;
             this.strike = true;
         }
-        else{
-            this.primerDisparo = false;
-            this.bolas++;
-            if(this.bolas % 2 == 0) this.actualizarPuntuación();
-        }
+        this.primerDisparo = false;
+        this.bolas++;
+        if(this.bolas % 2 == 0) this.actualizarPuntuación();
     }
 
     actualizarPuntuación(){
@@ -50,6 +48,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
         console.log("set terminado");
 
-        this.actualizarTexto(this.score);
+        this.actualizarTexto(this.score);   //texto el cual SÓLO se actualiza en escena si se llama esta función
     }
 }
